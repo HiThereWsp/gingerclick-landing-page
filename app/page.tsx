@@ -284,39 +284,41 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* Footer */}
+      {/* Footer - Updated */}
       <footer className="px-6 py-12 md:px-12 lg:px-24">
         <div className="max-w-7xl mx-auto text-center">
-          <div className="mb-6">
-            <img
-              src="/gingerclick-logo-new.png"
-              alt="GingerClick"
-              className="h-8 w-auto object-contain mx-auto opacity-60"
-            />
-          </div>
+          <p className="text-gray-500 mb-6">© 2025 GingerClick — Transforming B2B Growth through premium automated systems</p>
 
-          <p className="text-gray-500 mb-6">© 2025 GingerClick — Transforming B2B Growth Through Premium Automation</p>
-
-          <div className="flex justify-center items-center gap-4">
-            <a href="https://www.linkedin.com/in/andy-guitteaud-a3357984/" target="_blank" rel="noopener noreferrer">
-              <img
-                src="/linkedin-logo-new.png"
-                alt="LinkedIn"
-                className="h-8 w-8 opacity-60 hover:opacity-100 transition-opacity"
-              />
-            </a>
+          <div className="flex justify-center items-center gap-8">
             <a
               href="#"
               onClick={(e) => {
                 e.preventDefault()
                 window.scrollTo({ top: 0, behavior: "smooth" })
               }}
+              className="opacity-60 hover:opacity-100 transition-opacity"
             >
-              <img
-                src="/gingerclick-logo-new.png"
-                alt="GingerClick"
-                className="h-8 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity"
-              />
+              <div className="h-20 md:h-32 lg:h-36">
+                <img
+                  src="/gingerclick-logo-new.png"
+                  alt="GingerClick"
+                  className="h-full w-auto object-contain"
+                />
+              </div>
+            </a>
+            <a 
+              href="https://www.linkedin.com/in/andy-guitteaud-a3357984/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="opacity-60 hover:opacity-100 transition-opacity"
+            >
+              <div className="h-20 md:h-32 lg:h-36">
+                <img
+                  src="/linkedin-logo-new.png"
+                  alt="LinkedIn"
+                  className="h-full w-auto object-contain"
+                />
+              </div>
             </a>
           </div>
         </div>

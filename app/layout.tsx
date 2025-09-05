@@ -5,9 +5,9 @@ import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.app',
+  title: 'GingerClick - Growth Systems for B2B Companies',
+  description: 'Premium automated systems for established B2B businesses',
+  generator: 'Next.js',
 }
 
 export default function RootLayout({

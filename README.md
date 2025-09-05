@@ -1,30 +1,59 @@
-# Gingerclick landing page
+# GingerClick Landing Page
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
-
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/pedago-ia/v0-gingerclick-landing-page)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/projects/clQF9t5jdxE)
+Professional landing page for GingerClick - Growth Systems for B2B Companies.
 
 ## Overview
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+This is a modern, responsive landing page built with Next.js, featuring:
+- Premium design with smooth animations
+- Mobile-responsive layout
+- Performance optimized
+- SEO-friendly structure
+
+## Features
+
+- Hero section with compelling messaging
+- Company showcase with client logos
+- Detailed service offerings
+- Experience metrics display
+- Call-to-action sections
+- Professional footer
+
+## Tech Stack
+
+- **Framework**: Next.js 14
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **UI Components**: Radix UI
+- **Icons**: Lucide React
+- **Analytics**: Vercel Analytics
+
+## Getting Started
+
+1. Install dependencies:
+```bash
+pnpm install
+```
+
+2. Run the development server:
+```bash
+pnpm dev
+```
+
+3. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Deployment
 
-Your project is live at:
+The site is configured for production deployment with:
+- Static export capability
+- Optimized images
+- Production-ready build configuration
 
-**[https://vercel.com/pedago-ia/v0-gingerclick-landing-page](https://vercel.com/pedago-ia/v0-gingerclick-landing-page)**
+To build for production:
+```bash
+pnpm build
+```
 
-## Build your app
+## Contact
 
-Continue building your app on:
-
-**[https://v0.app/chat/projects/clQF9t5jdxE](https://v0.app/chat/projects/clQF9t5jdxE)**
-
-## How It Works
-
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+For business inquiries, visit: [https://calendly.com/andygtd/30min](https://calendly.com/andygtd/30min)
