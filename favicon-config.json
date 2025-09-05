@@ -1,0 +1,51 @@
+{
+  "name": "GingerClick",
+  "description": "Growth Systems for B2B Companies",
+  "colors": {
+    "primary": "#BFFF00",
+    "background": "#101020",
+    "theme": "#BFFF00"
+  },
+  "icons": {
+    "favicon": {
+      "sizes": [16, 32, 48],
+      "formats": ["ico", "png"]
+    },
+    "apple": {
+      "sizes": [180],
+      "formats": ["png"]
+    },
+    "android": {
+      "sizes": [192, 512],
+      "formats": ["png"]
+    },
+    "safari": {
+      "formats": ["svg"]
+    }
+  },
+  "output": {
+    "directory": "public/",
+    "files": [
+      "favicon.ico",
+      "favicon-16x16.png",
+      "favicon-32x32.png",
+      "apple-touch-icon.png",
+      "android-chrome-192x192.png",
+      "android-chrome-512x512.png",
+      "safari-pinned-tab.svg"
+    ]
+  },
+  "tools": {
+    "online": [
+      "https://favicon.io/favicon-converter/",
+      "https://realfavicongenerator.net/",
+      "https://www.favicon-generator.org/"
+    ],
+    "desktop": [
+      "Photoshop",
+      "GIMP",
+      "Figma",
+      "Sketch"
+    ]
+  }
+}
