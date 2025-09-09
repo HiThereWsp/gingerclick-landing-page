@@ -5,24 +5,16 @@ import MouseMoveEffect from "@/components/mouse-move-effect"
 import { LanguageSwitcher } from "@/components/language-switcher"
 import CalendarEmbed from "@/components/calendar-embed"
 import { ClientOnly } from "@/components/client-only"
-import { useLanguage } from "@/lib/useLanguage"
+import { translations } from "@/lib/translations"
 import { motion } from "framer-motion"
 import { useEffect } from "react"
 
-export default function Home() {
-  const { t, isLoading } = useLanguage()
+export default function EnglishPage() {
+  const t = translations.en // Force la version anglaise
 
   useEffect(() => {
     document.documentElement.style.scrollBehavior = "smooth"
   }, [])
-
-  if (isLoading) {
-    return (
-      <div className="min-h-screen bg-[#030822] flex items-center justify-center">
-        <div className="text-white">Chargement...</div>
-      </div>
-    )
-  }
 
   return (
     <div className="min-h-screen bg-[#030822] text-white">
@@ -273,7 +265,7 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* Footer - Updated */}
+      {/* Footer */}
       <footer className="px-6 py-12 md:px-12 lg:px-24">
         <div className="max-w-7xl mx-auto text-center">
           <p className="text-gray-500 mb-6">{t.footer.copyright}</p>
