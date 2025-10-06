@@ -1,4 +1,14 @@
+# Robots.txt for GingerClick - Andy GUITTEAUD
+# Growth Systems for B2B Companies
+
 User-agent: *
 Allow: /
 
+# Sitemap
 Sitemap: https://gingerclick.com/sitemap.xml
+
+# Crawl-delay (optional, helps with server load)
+Crawl-delay: 1
+
+# Contact
+# Andy GUITTEAUD - https://www.linkedin.com/in/andy-guitteaud-a3357984/
