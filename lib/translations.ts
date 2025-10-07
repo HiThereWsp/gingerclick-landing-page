@@ -120,7 +120,7 @@ export const translations = {
         title: "Systèmes de Gestion de Projet",
         items: [
           "Systèmes d'Exécution Automatisée IA",
-          "Systèmes d'Intégration IA",
+          "Systèmes d'Onboarding automatisés",
           "Systèmes de Gestion de Projet"
         ]
       },
