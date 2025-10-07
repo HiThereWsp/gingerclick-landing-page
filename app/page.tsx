@@ -8,7 +8,6 @@ import { ClientOnly } from "@/components/client-only"
 import ScrollingLogos from "@/components/scrolling-logos"
 import ExperienceSection from "@/components/experience-section"
 import LoadingScreen from "@/components/loading-screen"
-import { VariableFontHoverByRandomLetter } from "@/components/ui/variable-font-hover-by-random-letter"
 import { useLanguage } from "@/lib/useLanguage"
 import { motion } from "framer-motion"
 import { useEffect } from "react"
@@ -113,14 +112,8 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-relaxed tracking-wide text-[#030822] no-hyphens">
-              <VariableFontHoverByRandomLetter
-                label={t.about.title}
-                fromFontVariationSettings="'wght' 600, 'slnt' 0"
-                toFontVariationSettings="'wght' 900, 'slnt' 0"
-                staggerDuration={0.02}
-                className="inline-block whitespace-normal"
-              />
+            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-relaxed tracking-wide text-[#030822] no-hyphens font-serif">
+              {t.about.title}
             </h3>
           </motion.div>
         </div>
