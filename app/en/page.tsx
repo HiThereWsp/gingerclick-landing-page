@@ -107,6 +107,7 @@ export default function EnglishPage() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
+        lang="en"
       >
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -116,7 +117,7 @@ export default function EnglishPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-relaxed tracking-wide text-[#030822]">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-relaxed tracking-wide text-[#030822] break-words hyphens-auto">
               <VariableFontHoverByRandomLetter
                 label={t.about.title}
                 fromFontVariationSettings="'wght' 600, 'slnt' 0"

@@ -57,7 +57,7 @@ const VariableFontHoverByRandomLetter = ({
 
   return (
     <motion.span
-      className={`${className}`}
+      className={`${className} break-words hyphens-auto`}
       onClick={onClick}
       whileHover="hover"
       initial="initial"
@@ -70,7 +70,7 @@ const VariableFontHoverByRandomLetter = ({
         return (
           <motion.span
             key={i}
-            className="inline-block whitespace-pre"
+            className="inline-block whitespace-pre-wrap"
             aria-hidden="true"
             variants={letterVariants}
             custom={index}

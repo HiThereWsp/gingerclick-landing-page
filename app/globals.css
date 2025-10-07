@@ -122,6 +122,27 @@
   body {
     @apply bg-background text-foreground;
   }
+  
+  /* Amélioration de la césure des mots */
+  .hyphens-auto {
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+  }
+  
+  /* Césure spécifique pour le français */
+  [lang="fr"] {
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+  }
+  
+  /* Césure spécifique pour l'anglais */
+  [lang="en"] {
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+  }
 }
 
 @layer utilities {
