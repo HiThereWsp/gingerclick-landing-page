@@ -13,7 +13,7 @@ export const translations = {
     
     // About Section
     about: {
-      title: "ANDY AND HIS TEAM SPECIALIZE IN BUILDING AUTOMATION SYSTEMS THAT HAVE GENERATED MILLIONS FOR ESTABLISHED B2B BUSINESSES."
+      title: "Andy and his team are experts in designing automation systems that have enabled established B2B companies to generate millions of euros"
     },
     
     // Experience Section
@@ -91,7 +91,7 @@ export const translations = {
     
     // About Section
     about: {
-      title: "ANDY ET SON ÉQUIPE SONT SPÉCIALISÉS DANS LA CRÉATION DE SYSTÈMES D'AUTOMATISATION QUI ONT GÉNÉRÉ DES MILLIONS POUR DES ENTREPRISES B2B ÉTABLIES."
+      title: "Andy et son équipe sont experts en conception de systèmes d'automatisation ayant permis à des entreprises B2B établies de générer plusieurs millions d'euros"
     },
     
     // Experience Section

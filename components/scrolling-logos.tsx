@@ -51,44 +51,46 @@ const logos: Logo[] = [
 
 export default function ScrollingLogos() {
   return (
-    <div className="relative overflow-hidden bg-black py-3">
-      {/* Gradient overlays pour un effet de fondu */}
-      <div className="absolute left-0 top-0 z-10 h-full w-20 bg-gradient-to-r from-black to-transparent"></div>
-      <div className="absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-black to-transparent"></div>
+    <div className="relative overflow-hidden bg-[#030822] py-6 sm:py-8">
+      {/* Gradient overlays pour un effet de fondu - Responsive */}
+      <div className="absolute left-0 top-0 z-10 h-full w-16 sm:w-24 md:w-32 bg-gradient-to-r from-[#030822] to-transparent"></div>
+      <div className="absolute right-0 top-0 z-10 h-full w-16 sm:w-24 md:w-32 bg-gradient-to-l from-[#030822] to-transparent"></div>
       
-      {/* Container pour l'animation */}
-      <div className="flex animate-scroll">
+      {/* Container pour l'animation en boucle infinie */}
+      <div className="flex w-fit animate-infinite-scroll">
         {/* Première série de logos */}
         {logos.map((logo, index) => (
           <div
             key={`first-${index}`}
-            className="mx-12 flex-shrink-0 flex items-center justify-center"
+            className="flex-shrink-0 flex items-center justify-center mx-12 sm:mx-16 md:mx-24"
+            style={{ minWidth: '200px' }}
           >
-            <div className="relative">
+            <div className="relative scale-75 sm:scale-90 md:scale-100">
               <Image
                 src={logo.src}
                 alt={logo.alt}
                 width={logo.width}
                 height={logo.height}
-                className="object-contain"
+                className="object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
               />
             </div>
           </div>
         ))}
         
-        {/* Deuxième série de logos (pour l'effet de boucle) */}
+        {/* Deuxième série de logos (pour la boucle) */}
         {logos.map((logo, index) => (
           <div
             key={`second-${index}`}
-            className="mx-12 flex-shrink-0 flex items-center justify-center"
+            className="flex-shrink-0 flex items-center justify-center mx-12 sm:mx-16 md:mx-24"
+            style={{ minWidth: '200px' }}
           >
-            <div className="relative">
+            <div className="relative scale-75 sm:scale-90 md:scale-100">
               <Image
                 src={logo.src}
                 alt={logo.alt}
                 width={logo.width}
                 height={logo.height}
-                className="object-contain"
+                className="object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
               />
             </div>
           </div>

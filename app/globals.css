@@ -136,6 +136,14 @@
   .animate-scroll {
     animation: scroll 20s linear infinite;
   }
+
+  .animate-scroll-smooth {
+    animation: scroll-smooth 40s linear infinite;
+  }
+
+  .animate-infinite-scroll {
+    animation: infinite-scroll 35s linear infinite;
+  }
 }
 
 @keyframes marquee {
@@ -158,6 +166,24 @@
     transform: translateX(0);
   }
   100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-smooth {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% / 3));
+  }
+}
+
+@keyframes infinite-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
     transform: translateX(-50%);
   }
 }

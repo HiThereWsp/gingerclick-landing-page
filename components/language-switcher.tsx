@@ -25,11 +25,11 @@ export function LanguageSwitcher() {
   // Ne pas afficher pendant le chargement pour éviter les problèmes d'hydratation
   if (isLoading) {
     return (
-      <div className="flex gap-2 justify-center">
-        <div className="px-4 py-2 text-sm font-semibold border border-white/40 text-white/80 rounded-lg bg-white/5">
+      <div className="flex gap-1.5 sm:gap-2 justify-center">
+        <div className="px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold border border-white/40 text-white/80 rounded-lg bg-white/5">
           EN
         </div>
-        <div className="px-4 py-2 text-sm font-semibold border border-white/40 text-white/80 rounded-lg bg-white/5">
+        <div className="px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold border border-white/40 text-white/80 rounded-lg bg-white/5">
           FR
         </div>
       </div>
@@ -39,12 +39,12 @@ export function LanguageSwitcher() {
   console.log('Current language:', currentLanguage) // Debug log
 
   return (
-    <div className="flex gap-2 justify-center">
+    <div className="flex gap-1.5 sm:gap-2 justify-center">
       <Button
         variant="outline"
         size="sm"
         onClick={() => handleLanguageChange('en')}
-        className={`px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg ${
+        className={`px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold transition-all duration-200 rounded-lg ${
           currentLanguage === 'en' 
             ? 'bg-[#a3e635] text-black border-[#a3e635] shadow-lg shadow-[#a3e635]/30' 
             : 'border-white/40 text-white/80 hover:bg-white/15 hover:text-white hover:border-white/60 bg-white/5'
@@ -56,7 +56,7 @@ export function LanguageSwitcher() {
         variant="outline"
         size="sm"
         onClick={() => handleLanguageChange('fr')}
-        className={`px-4 py-2 text-sm font-semibold transition-all duration-200 rounded-lg ${
+        className={`px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold transition-all duration-200 rounded-lg ${
           currentLanguage === 'fr' 
             ? 'bg-[#a3e635] text-black border-[#a3e635] shadow-lg shadow-[#a3e635]/30' 
             : 'border-white/40 text-white/80 hover:bg-white/15 hover:text-white hover:border-white/60 bg-white/5'
