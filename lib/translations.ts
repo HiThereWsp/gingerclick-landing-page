@@ -13,7 +13,7 @@ export const translations = {
     
     // About Section
     about: {
-      title: "Andy and his team are experts in designing automation systems that have enabled established B2B companies to generate millions of euros"
+      title: "Andy and his team are experts in designing automation systems that have enabled established B2B companies to generate millions of dollars"
     },
     
     // Experience Section
