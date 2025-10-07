@@ -123,25 +123,22 @@
     @apply bg-background text-foreground;
   }
   
-  /* Amélioration de la césure des mots */
-  .hyphens-auto {
-    hyphens: auto;
-    -webkit-hyphens: auto;
-    -ms-hyphens: auto;
+  /* Désactivation de la césure pour éviter les coupures de mots */
+  .no-hyphens {
+    hyphens: none;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+    word-break: keep-all;
+    overflow-wrap: break-word;
   }
   
-  /* Césure spécifique pour le français */
-  [lang="fr"] {
-    hyphens: auto;
-    -webkit-hyphens: auto;
-    -ms-hyphens: auto;
-  }
-  
-  /* Césure spécifique pour l'anglais */
-  [lang="en"] {
-    hyphens: auto;
-    -webkit-hyphens: auto;
-    -ms-hyphens: auto;
+  /* Éviter les coupures de mots dans les titres */
+  h1, h2, h3, h4, h5, h6 {
+    hyphens: none;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+    word-break: keep-all;
+    overflow-wrap: break-word;
   }
 }
 

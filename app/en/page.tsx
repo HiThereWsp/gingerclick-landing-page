@@ -117,13 +117,13 @@ export default function EnglishPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-relaxed tracking-wide text-[#030822] break-words hyphens-auto">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-relaxed tracking-wide text-[#030822] no-hyphens">
               <VariableFontHoverByRandomLetter
                 label={t.about.title}
                 fromFontVariationSettings="'wght' 600, 'slnt' 0"
                 toFontVariationSettings="'wght' 900, 'slnt' 0"
                 staggerDuration={0.02}
-                className="inline-block"
+                className="inline-block whitespace-normal"
               />
             </h3>
           </motion.div>
