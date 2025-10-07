@@ -67,3 +67,9 @@ Pour vérifier que tout fonctionne :
 - ✅ Safari (Mac, iOS)
 - ✅ Mobile browsers (iOS Safari, Chrome Mobile)
 - ✅ Progressive Web Apps
+
+
+
+
+
+

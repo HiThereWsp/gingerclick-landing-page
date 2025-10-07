@@ -104,3 +104,9 @@ console.log('✅ Configuration Next.js prête !');
 console.log('✅ Métadonnées configurées !');
 console.log('');
 console.log('🚀 Prêt à recevoir vos favicons !');
+
+
+
+
+
+

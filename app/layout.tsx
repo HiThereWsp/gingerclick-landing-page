@@ -6,8 +6,29 @@ import Script from 'next/script'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'GingerClick - Growth Systems for B2B Companies',
-  description: 'Premium automated systems for established B2B businesses',
+  metadataBase: new URL('https://gingerclick.com'),
+  title: 'GingerClick - Growth Systems for B2B Companies | Andy Guitteaud',
+  description: 'Premium automated systems for established B2B businesses. Expert growth systems by Andy Guitteaud for lead generation, project management, and sales administration.',
+  keywords: 'Andy Guitteaud, growth systems, B2B, lead generation, project management, sales administration, business automation',
+  authors: [{ name: 'Andy Guitteaud' }],
+  openGraph: {
+    title: 'GingerClick - Growth Systems for B2B Companies | Andy Guitteaud',
+    description: 'Premium automated systems for established B2B businesses. Expert growth systems by Andy Guitteaud.',
+    images: [
+      {
+        url: '/profile-new andy guitteaud.png',
+        width: 400,
+        height: 400,
+        alt: 'Andy Guitteaud - Expert en Growth Systems',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'GingerClick - Growth Systems for B2B Companies | Andy Guitteaud',
+    description: 'Premium automated systems for established B2B businesses. Expert growth systems by Andy Guitteaud.',
+    images: ['/profile-new andy guitteaud.png'],
+  },
   generator: 'Next.js',
   icons: {
     icon: [

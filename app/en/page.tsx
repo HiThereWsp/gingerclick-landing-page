@@ -35,7 +35,7 @@ export default function EnglishPage() {
             </div>
             <div className="flex flex-col items-end gap-3">
               <div className="w-24 h-24 md:w-32 md:h-32 rounded-lg overflow-hidden">
-                <img src="/profile-new.jpeg" alt="Profile" className="w-full h-full object-cover" />
+                <img src="/profile-new andy guitteaud.png" alt="Andy Guitteaud - Growth Systems Expert" className="w-full h-full object-cover" />
               </div>
               <ClientOnly fallback={
                 <div className="flex gap-2 justify-center">
