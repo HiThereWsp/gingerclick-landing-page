@@ -5,6 +5,7 @@ import MouseMoveEffect from "@/components/mouse-move-effect"
 import { LanguageSwitcher } from "@/components/language-switcher"
 import CalendarEmbed from "@/components/calendar-embed"
 import { ClientOnly } from "@/components/client-only"
+import { MarqueeDemo } from "@/components/marquee-demo"
 import { useLanguage } from "@/lib/useLanguage"
 import { motion } from "framer-motion"
 import { useEffect } from "react"
@@ -99,29 +100,7 @@ export default function Home() {
         viewport={{ once: true }}
       >
         <div className="max-w-7xl mx-auto">
-          <div className="flex justify-center items-center gap-12 md:gap-20 flex-wrap">
-            <div className="h-16 md:h-20">
-              <img
-                src="/bat-logo.png"
-                alt="BAT"
-                className="h-full w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
-              />
-            </div>
-            <div className="h-16 md:h-20">
-              <img
-                src="/orange-logo.png"
-                alt="Orange"
-                className="h-full w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
-              />
-            </div>
-            <div className="h-16 md:h-20">
-              <img
-                src="/airbnb-logo.jpeg"
-                alt="Airbnb"
-                className="h-full w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
-              />
-            </div>
-          </div>
+          <MarqueeDemo />
         </div>
       </motion.section>
 
