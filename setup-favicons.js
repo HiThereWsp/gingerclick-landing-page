@@ -110,3 +110,5 @@ console.log('🚀 Prêt à recevoir vos favicons !');
 
 
 
+
+

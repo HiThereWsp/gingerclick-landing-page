@@ -132,6 +132,10 @@
   .animate-marquee-reverse {
     animation: marquee-reverse var(--duration, 30s) linear infinite;
   }
+
+  .animate-scroll {
+    animation: scroll 20s linear infinite;
+  }
 }
 
 @keyframes marquee {
@@ -146,6 +150,15 @@
   }
   to {
     transform: translateX(0%);
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
 

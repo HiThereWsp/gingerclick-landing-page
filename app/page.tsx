@@ -5,7 +5,7 @@ import MouseMoveEffect from "@/components/mouse-move-effect"
 import { LanguageSwitcher } from "@/components/language-switcher"
 import CalendarEmbed from "@/components/calendar-embed"
 import { ClientOnly } from "@/components/client-only"
-import { MarqueeDemo } from "@/components/marquee-demo"
+import ScrollingLogos from "@/components/scrolling-logos"
 import { useLanguage } from "@/lib/useLanguage"
 import { motion } from "framer-motion"
 import { useEffect } from "react"
@@ -92,17 +92,7 @@ export default function Home() {
       </section>
 
       {/* Logos Section */}
-      <motion.section
-        className="px-6 py-12 md:px-12 lg:px-24 bg-[#fdf4cf]"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-      >
-        <div className="max-w-7xl mx-auto">
-          <MarqueeDemo />
-        </div>
-      </motion.section>
+      <ScrollingLogos />
 
       {/* About Andy Section */}
       <motion.section
