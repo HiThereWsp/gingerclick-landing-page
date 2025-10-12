@@ -4,19 +4,22 @@ import { Button } from "@/components/ui/button"
 import MouseMoveEffect from "@/components/mouse-move-effect"
 import { LanguageSwitcher } from "@/components/language-switcher"
 import CalendarEmbed from "@/components/calendar-embed"
-import { ClientOnly } from "@/components/client-only"
 import ScrollingLogos from "@/components/scrolling-logos"
 import ExperienceSection from "@/components/experience-section"
 import LoadingScreen from "@/components/loading-screen"
-import { useLanguage } from "@/lib/useLanguage"
+import { translations } from "@/lib/translations"
 import { motion } from "framer-motion"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
 export default function Home() {
-  const { t, isLoading } = useLanguage()
+  const t = translations.fr // Force la version française sur la route /
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     document.documentElement.style.scrollBehavior = "smooth"
+    // Simuler un petit temps de chargement pour l'effet
+    const timer = setTimeout(() => setIsLoading(false), 500)
+    return () => clearTimeout(timer)
   }, [])
 
   if (isLoading) {
@@ -47,18 +50,7 @@ export default function Home() {
               <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-lg overflow-hidden">
                 <img src="/profile-new andy guitteaud.png" alt="Andy Guitteaud - Expert en Growth Systems" className="w-full h-full object-cover" />
               </div>
-              <ClientOnly fallback={
-                <div className="flex gap-1.5 sm:gap-2 justify-center">
-                  <div className="px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold border border-white/40 text-white/80 rounded-lg bg-white/5">
-                    EN
-                  </div>
-                  <div className="px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold border border-white/40 text-white/80 rounded-lg bg-white/5">
-                    FR
-                  </div>
-                </div>
-              }>
-                <LanguageSwitcher />
-              </ClientOnly>
+              <LanguageSwitcher />
             </div>
           </div>
 

@@ -1,14 +1,14 @@
 "use client"
 
-import { useLanguage } from '@/lib/useLanguage'
+// Plus besoin de useLanguage, on utilise la logique basée sur les routes
 import { Button } from '@/components/ui/button'
 import { usePathname } from 'next/navigation'
 
 export function LanguageSwitcher() {
-  const { changeLanguage, isLoading } = useLanguage()
   const pathname = usePathname()
   
   // Déterminer la langue actuelle basée sur la route
+  // Route / = français, Route /en = anglais
   const currentLanguage = pathname === '/en' ? 'en' : 'fr'
 
   const handleLanguageChange = (newLanguage: 'en' | 'fr') => {
@@ -22,19 +22,7 @@ export function LanguageSwitcher() {
     }
   }
 
-  // Ne pas afficher pendant le chargement pour éviter les problèmes d'hydratation
-  if (isLoading) {
-    return (
-      <div className="flex gap-1.5 sm:gap-2 justify-center">
-        <div className="px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold border border-white/40 text-white/80 rounded-lg bg-white/5">
-          EN
-        </div>
-        <div className="px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold border border-white/40 text-white/80 rounded-lg bg-white/5">
-          FR
-        </div>
-      </div>
-    )
-  }
+  // Plus besoin de gestion de loading, le composant est simple maintenant
 
   console.log('Current language:', currentLanguage) // Debug log
 
