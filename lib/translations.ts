@@ -13,7 +13,7 @@ export const translations = {
     
     // About Section
     about: {
-      title: "Andy and his team are experts in designing automation systems that have enabled established B2B companies to generate millions of dollars"
+      title: "We design automated systems to drive growth for our partners"
     },
     
     // Experience Section
@@ -91,7 +91,7 @@ export const translations = {
     
     // About Section
     about: {
-      title: "Andy et son équipe sont experts en conception de systèmes d'automatisation ayant permis à des entreprises B2B établies de générer plusieurs millions d'euros"
+      title: "Nous concevons des systèmes automatisés pour stimuler la croissance de nos partenaires"
     },
     
     // Experience Section

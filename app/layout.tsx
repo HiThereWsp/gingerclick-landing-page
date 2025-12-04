@@ -7,27 +7,26 @@ import './globals.css'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://gingerclick.com'),
-  title: 'GingerClick - Growth Systems for B2B Companies | Andy Guitteaud',
-  description: 'Premium automated systems for established B2B businesses. Expert growth systems by Andy Guitteaud for lead generation, project management, and sales administration.',
-  keywords: 'Andy Guitteaud, growth systems, B2B, lead generation, project management, sales administration, business automation',
-  authors: [{ name: 'Andy Guitteaud' }],
+  title: 'GingerClick - Growth Systems for B2B Companies',
+  description: 'Premium automated systems for established B2B businesses. Expert growth systems for lead generation, project management, and sales administration.',
+  keywords: 'growth systems, B2B, lead generation, project management, sales administration, business automation',
   openGraph: {
-    title: 'GingerClick - Growth Systems for B2B Companies | Andy Guitteaud',
-    description: 'Premium automated systems for established B2B businesses. Expert growth systems by Andy Guitteaud.',
+    title: 'GingerClick - Growth Systems for B2B Companies',
+    description: 'Premium automated systems for established B2B businesses. Expert growth systems.',
     images: [
       {
-        url: '/profile-new andy guitteaud.png',
+        url: '/gingerclick-logo-new.png',
         width: 400,
         height: 400,
-        alt: 'Andy Guitteaud - Expert en Growth Systems',
+        alt: 'GingerClick - Growth Systems',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'GingerClick - Growth Systems for B2B Companies | Andy Guitteaud',
-    description: 'Premium automated systems for established B2B businesses. Expert growth systems by Andy Guitteaud.',
-    images: ['/profile-new andy guitteaud.png'],
+    title: 'GingerClick - Growth Systems for B2B Companies',
+    description: 'Premium automated systems for established B2B businesses. Expert growth systems.',
+    images: ['/gingerclick-logo-new.png'],
   },
   generator: 'Next.js',
   icons: {

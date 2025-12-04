@@ -45,11 +45,8 @@ export default function EnglishPage() {
               <img src="/gingerclick-logo-new.png" alt="GingerClick" className="h-full w-auto object-contain" />
             </div>
             
-            {/* Profile & Language Switcher - Responsive */}
+            {/* Language Switcher - Responsive */}
             <div className="flex flex-col items-end gap-2 md:gap-3">
-              <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-lg overflow-hidden">
-                <img src="/profile-new andy guitteaud.png" alt="Andy Guitteaud - Growth Systems Expert" className="w-full h-full object-cover" />
-              </div>
               <LanguageSwitcher />
             </div>
           </div>
@@ -104,7 +101,7 @@ export default function EnglishPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-relaxed tracking-wide text-[#030822] no-hyphens font-serif text-center">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold italic leading-relaxed tracking-wide text-[#030822] no-hyphens font-serif text-center">
               {t.about.title}
             </h3>
           </motion.div>
