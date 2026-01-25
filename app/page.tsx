@@ -44,7 +44,7 @@ export default function Home() {
             <div className="h-16 sm:h-20 md:h-32 lg:h-36">
               <img src="/gingerclick-logo-new.png" alt="GingerClick" className="h-full w-auto object-contain" />
             </div>
-            
+
             {/* Language Switcher - Responsive */}
             <div className="flex flex-col items-end gap-2 md:gap-3">
               <LanguageSwitcher />
@@ -127,7 +127,7 @@ export default function Home() {
           >
             {t.services.title}
           </motion.h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
             {/* Lead Generation */}
             <div className="bg-gradient-to-br from-[#1a1a2e] to-[#16213e] p-6 sm:p-8 rounded-2xl border border-[#a3e635]/10 hover:border-[#a3e635]/30 transition-all duration-300 group shadow-lg shadow-black/20 hover:shadow-xl hover:shadow-black/30">
@@ -188,6 +188,7 @@ export default function Home() {
         </div>
       </motion.section>
 
+
       {/* Experience Section */}
       <ExperienceSection title={t.experience.title} items={t.experience.items} />
 
@@ -204,7 +205,7 @@ export default function Home() {
           <div className="bg-[#2a2a2a] rounded-3xl p-6 sm:p-8 md:p-12 text-center max-w-4xl mx-auto">
             <h3 className="text-2xl sm:text-3xl md:text-4xl font-light mb-3 sm:mb-4">{t.cta.title}</h3>
             <p className="text-gray-400 mb-6 sm:mb-8 text-base sm:text-lg">{t.cta.subtitle}</p>
-            
+
             <CalendarEmbed />
           </div>
         </div>
@@ -232,9 +233,9 @@ export default function Home() {
                 />
               </div>
             </a>
-            <a 
-              href="https://www.linkedin.com/in/andy-guitteaud-a3357984/" 
-              target="_blank" 
+            <a
+              href="https://www.linkedin.com/in/andy-guitteaud-a3357984/"
+              target="_blank"
               rel="noopener noreferrer"
               className="opacity-60 hover:opacity-100 transition-opacity"
             >
