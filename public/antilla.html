@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GingerClick · Parlons IA · Antilla</title>
+<meta name="description" content="Un conseil sur vos projets IA en cours ou le décryptage IA des dirigeants. À vous de voir.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1a1a;
+    --paper: #faf7f2;
+    --paper-warm: #f4efe6;
+    --accent: #1A4D2E;
+    --accent-bright: #2d7a4a;
+    --accent-soft: #e8f0ea;
+    --gold: #D4A94C;
+    --gold-soft: #E6C677;
+    --mute: #6b6355;
+    --rule: #d4cec0;
+    --obsidian: #0D0D12;
+  }
+
+  html, body {
+    font-family: 'Source Serif Pro', Georgia, serif;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.6;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/></svg>");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 32px 80px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Hero */
+  .hero { text-align: center; margin-bottom: 48px; }
+
+  .brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 22pt;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .brand .dot { color: var(--gold); }
+
+  .tagline {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9pt;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-top: 6px;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 44pt;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin: 32px 0 14px;
+    color: var(--ink);
+  }
+  .hero h1 em {
+    color: var(--accent);
+    font-style: italic;
+  }
+
+  .hero .lede {
+    font-family: 'Source Serif Pro', serif;
+    font-style: italic;
+    font-size: 15pt;
+    line-height: 1.45;
+    color: var(--mute);
+    max-width: 620px;
+    margin: 0 auto;
+  }
+
+  .hero .utm-badge {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 5px 14px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-radius: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8pt;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .hero .utm-badge.visible { opacity: 0.8; }
+
+  /* Cards grid */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 760px) {
+    .cards-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 32pt; }
+    main { padding: 40px 20px 60px; }
+  }
+
+  .card {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 16px;
+    padding: 34px 32px;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 14px rgba(13,13,18,0.04);
+    display: flex;
+    flex-direction: column;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(13,13,18,0.08);
+  }
+  .card.featured {
+    border: 2px solid var(--accent);
+    box-shadow: 0 6px 28px rgba(26,77,46,0.12);
+  }
+  .card.featured::before {
+    content: 'Suggéré';
+    position: absolute;
+    top: -11px;
+    right: 24px;
+    background: var(--accent);
+    color: var(--paper);
+    font-family: 'Inter', sans-serif;
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 10px;
+  }
+
+  .card .card-kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8pt;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent-bright);
+    margin-bottom: 10px;
+  }
+  .card h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 20pt;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+  .card .card-body {
+    font-family: 'Source Serif Pro', serif;
+    font-size: 11pt;
+    line-height: 1.55;
+    color: var(--mute);
+    margin-bottom: 22px;
+    flex-grow: 1;
+  }
+
+  .cta-button {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--paper);
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 10pt;
+    letter-spacing: 0.05em;
+    padding: 14px 24px;
+    border-radius: 8px;
+    transition: background 0.2s;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+  }
+  .cta-button:hover {
+    background: var(--accent-bright);
+  }
+  .cta-button.dark {
+    background: var(--obsidian);
+  }
+  .cta-button.dark:hover { background: #1A1A22; }
+
+  /* Form */
+  .brevo-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .brevo-form input {
+    font-family: 'Inter', sans-serif;
+    font-size: 10pt;
+    padding: 12px 14px;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    background: var(--paper);
+    color: var(--ink);
+    transition: border-color 0.2s;
+  }
+  .brevo-form input:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+  .brevo-form .consent {
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    color: var(--mute);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 6px;
+    line-height: 1.4;
+  }
+  .brevo-form .consent input[type="checkbox"] {
+    margin-top: 2px;
+  }
+
+  .form-message {
+    font-family: 'Source Serif Pro', serif;
+    font-size: 10pt;
+    line-height: 1.5;
+    padding: 14px;
+    border-radius: 8px;
+    margin-top: 12px;
+    display: none;
+  }
+  .form-message.success {
+    background: var(--accent-soft);
+    color: var(--accent);
+    display: block;
+  }
+  .form-message.error {
+    background: #fdf0ec;
+    color: #b33a2e;
+    display: block;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 28px;
+    border-top: 1px solid var(--rule);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8pt;
+    color: var(--mute);
+    letter-spacing: 0.1em;
+  }
+  footer a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  footer a:hover { text-decoration: underline; }
+</style>
+<script defer data-website-id="dfid_OTtkczO4CIqf5aue3sqwj" data-domain="gingerclick.com" src="https://datafa.st/js/script.js"></script>
+</head>
+<body>
+
+<main>
+
+  <section class="hero">
+    <div class="brand">GingerClick<span class="dot">.</span></div>
+    <div class="tagline">Cabinet IA &amp; Automatisation</div>
+
+    <h1>Merci d'être <em>passé</em>.</h1>
+    <p class="lede">L'IA change la donne pour les dirigeants. Parlons de votre cas, ou gardons le contact.</p>
+
+    <div class="utm-badge" id="utm-badge">Source · Antilla mai 2026</div>
+  </section>
+
+  <section class="cards-grid">
+
+    <!-- CTA Appel -->
+    <div class="card" id="card-sparring">
+      <div class="card-kicker">Sparring stratégique · 30 minutes</div>
+      <h2>Un conseil sur vos projets IA en cours.</h2>
+      <p class="card-body">Un appel offert avec GingerClick. Un avis franc sur votre situation, des pistes concrètes, zéro relance commerciale.</p>
+      <button class="cta-button" onclick="openCal()">Réserver un appel →</button>
+    </div>
+
+    <!-- CTA Newsletter -->
+    <div class="card" id="card-newsletter">
+      <div class="card-kicker">Newsletter · 5 minutes par semaine</div>
+      <h2>Le décryptage IA des dirigeants.</h2>
+      <p class="card-body">Les sorties, les signaux, les leviers concrets. Un mail par semaine, cinq minutes de lecture, zéro hype.</p>
+
+      <form class="brevo-form" id="newsletter-form" onsubmit="return submitNewsletter(event)">
+        <input type="text" name="prenom" placeholder="Prénom" required>
+        <input type="text" name="nom" placeholder="Nom" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="tel" name="telephone" placeholder="Téléphone (optionnel)">
+
+        <label class="consent">
+          <input type="checkbox" name="consent" required>
+          <span>J'accepte de recevoir la newsletter GingerClick. Je peux me désabonner à tout moment.</span>
+        </label>
+
+        <input type="hidden" name="utm_source" id="f-utm-source">
+        <input type="hidden" name="utm_medium" id="f-utm-medium">
+        <input type="hidden" name="utm_campaign" id="f-utm-campaign">
+        <input type="hidden" name="utm_content" id="f-utm-content">
+
+        <button type="submit" class="cta-button dark">M'abonner →</button>
+        <div class="form-message" id="form-message"></div>
+      </form>
+    </div>
+
+  </section>
+
+  <footer>
+    GingerClick · Cabinet IA &amp; Automatisation · <a href="mailto:andy@gingerclick.com">andy@gingerclick.com</a>
+  </footer>
+
+</main>
+
+<!-- Cal.com inline embed -->
+<script type="text/javascript">
+(function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+Cal("init", "parlons-ia-antilla", { origin: "https://cal.com" });
+Cal.ns["parlons-ia-antilla"]("ui", { cssVarsPerTheme: { light: { "cal-brand": "#1A4D2E" }, dark: { "cal-brand": "#D4A94C" } }, hideEventTypeDetails: false, layout: "month_view" });
+</script>
+
+<script>
+  // Capture UTM et adapte la hiérarchie visuelle
+  const params = new URLSearchParams(location.search);
+  const utm = {
+    source: params.get('utm_source') || '',
+    medium: params.get('utm_medium') || '',
+    campaign: params.get('utm_campaign') || '',
+    content: params.get('utm_content') || ''
+  };
+
+  // Remplit les hidden fields du form
+  document.getElementById('f-utm-source').value = utm.source;
+  document.getElementById('f-utm-medium').value = utm.medium;
+  document.getElementById('f-utm-campaign').value = utm.campaign;
+  document.getElementById('f-utm-content').value = utm.content;
+
+  // Badge UTM visible en hero
+  if (utm.source || utm.content) {
+    const badge = document.getElementById('utm-badge');
+    let label = 'Source · ';
+    if (utm.source) label += utm.source;
+    if (utm.campaign) label += ' · ' + utm.campaign;
+    if (utm.content) label += ' · ' + utm.content;
+    badge.textContent = label;
+    badge.classList.add('visible');
+  }
+
+  // Adapte la hiérarchie visuelle selon utm_content
+  if (utm.content === 'sparring') {
+    document.getElementById('card-sparring').classList.add('featured');
+  } else if (utm.content === 'newsletter') {
+    document.getElementById('card-newsletter').classList.add('featured');
+  }
+
+  // Ouvre Cal.com popup
+  function openCal() {
+    Cal.ns["parlons-ia-antilla"]("modal", { calLink: "andy-gtd/parlons-ia-antilla" });
+  }
+
+  // Submit newsletter form
+  async function submitNewsletter(e) {
+    e.preventDefault();
+    const form = e.target;
+    const msgEl = document.getElementById('form-message');
+    msgEl.className = 'form-message';
+    msgEl.style.display = 'none';
+
+    const data = {
+      prenom: form.prenom.value.trim(),
+      nom: form.nom.value.trim(),
+      email: form.email.value.trim(),
+      telephone: form.telephone.value.trim(),
+      utm_source: form.utm_source.value,
+      utm_medium: form.utm_medium.value,
+      utm_campaign: form.utm_campaign.value,
+      utm_content: form.utm_content.value
+    };
+
+    try {
+      const res = await fetch('/api/antilla-submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      const json = await res.json();
+      if (res.ok && json.ok) {
+        msgEl.className = 'form-message success';
+        msgEl.textContent = 'Merci. Vous recevrez le prochain décryptage sous peu.';
+        form.reset();
+      } else {
+        msgEl.className = 'form-message error';
+        msgEl.textContent = json.error || 'Une erreur est survenue. Réessayez dans un instant.';
+      }
+    } catch (err) {
+      msgEl.className = 'form-message error';
+      msgEl.textContent = 'Connexion interrompue. Réessayez.';
+    }
+    return false;
+  }
+</script>
+
+</body>
+</html>
