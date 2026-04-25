@@ -2,38 +2,55 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GingerClick · Parlons IA · Antilla</title>
-<meta name="description" content="Un conseil sur vos projets IA en cours ou le décryptage IA des dirigeants. À vous de voir.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>GingerClick · Antilla mai 2026</title>
+<meta name="description" content="Suite à l'article du magazine Antilla, restons en contact. Workshops, audit personnalisé ou message direct, à votre rythme.">
+
+<!-- OG / Twitter -->
+<meta property="og:title" content="GingerClick · Antilla mai 2026">
+<meta property="og:description" content="Restons en contact après l'article. Workshops, audit, ou message direct.">
+<meta property="og:image" content="/gingerclick-logo-new.png">
+<meta property="og:type" content="website">
+
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<!-- Polices alignées sur l'article Antilla -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 
+<!-- Datafast analytics -->
+<script defer data-website-id="dfid_OTtkczO4CIqf5aue3sqwj" src="https://datafa.st/js/script.js"></script>
+
+<style>
   :root {
-    --ink: #1a1a1a;
-    --paper: #faf7f2;
-    --paper-warm: #f4efe6;
-    --accent: #1A4D2E;
-    --accent-bright: #2d7a4a;
-    --accent-soft: #e8f0ea;
-    --gold: #D4A94C;
-    --gold-soft: #E6C677;
-    --mute: #6b6355;
-    --rule: #d4cec0;
-    --obsidian: #0D0D12;
+    --paper:        #faf8f5;
+    --paper-warm:   #f4efe6;
+    --ink:          #1a1a1a;
+    --mute:         #6b6355;
+    --rule:         rgba(26,77,46,0.18);
+    --accent:       #1A4D2E;
+    --accent-bright:#2d7a4a;
+    --gold:         #D4A94C;
+    --whatsapp:     #25D366;
   }
 
+  * { box-sizing: border-box; }
+
   html, body {
-    font-family: 'Source Serif Pro', Georgia, serif;
-    color: var(--ink);
+    margin: 0;
+    padding: 0;
     background: var(--paper);
-    line-height: 1.6;
-    min-height: 100vh;
+    color: var(--ink);
+    font-family: 'Source Serif Pro', Georgia, serif;
+    font-size: 16px;
+    line-height: 1.55;
     -webkit-font-smoothing: antialiased;
   }
 
+  /* Texture papier subtile */
   body::before {
     content: '';
     position: fixed;
@@ -43,395 +60,461 @@
     z-index: 0;
   }
 
-  main {
-    max-width: 1100px;
+  .container {
+    max-width: 760px;
     margin: 0 auto;
-    padding: 60px 32px 80px;
+    padding: 32px 22px 56px;
     position: relative;
     z-index: 1;
   }
 
-  /* Hero */
-  .hero { text-align: center; margin-bottom: 48px; }
-
+  /* Header brand */
   .brand {
-    font-family: 'Playfair Display', serif;
-    font-weight: 900;
-    font-size: 22pt;
-    letter-spacing: -0.02em;
-    color: var(--ink);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 32px;
   }
-  .brand .dot { color: var(--gold); }
-
-  .tagline {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 9pt;
-    font-weight: 500;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-top: 6px;
+  .brand img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    flex-shrink: 0;
   }
-
-  .hero h1 {
+  .brand-text {
+    line-height: 1.25;
+  }
+  .brand-name {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
-    font-size: 44pt;
-    line-height: 1.05;
-    letter-spacing: -0.02em;
-    margin: 32px 0 14px;
+    font-size: 18pt;
     color: var(--ink);
+    letter-spacing: -0.01em;
   }
-  .hero h1 em {
-    color: var(--accent);
-    font-style: italic;
-  }
-
-  .hero .lede {
-    font-family: 'Source Serif Pro', serif;
-    font-style: italic;
-    font-size: 15pt;
-    line-height: 1.45;
-    color: var(--mute);
-    max-width: 620px;
-    margin: 0 auto;
-  }
-
-  .hero .utm-badge {
-    display: inline-block;
-    margin-top: 18px;
-    padding: 5px 14px;
-    background: var(--accent-soft);
-    color: var(--accent);
-    border-radius: 16px;
+  .brand-services {
     font-family: 'JetBrains Mono', monospace;
     font-size: 8pt;
     font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-  .hero .utm-badge.visible { opacity: 0.8; }
-
-  /* Cards grid */
-  .cards-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 28px;
-    margin-top: 40px;
-  }
-
-  @media (max-width: 760px) {
-    .cards-grid { grid-template-columns: 1fr; }
-    .hero h1 { font-size: 32pt; }
-    main { padding: 40px 20px 60px; }
-  }
-
-  .card {
-    background: #fff;
-    border: 1px solid var(--rule);
-    border-radius: 16px;
-    padding: 34px 32px;
-    position: relative;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 2px 14px rgba(13,13,18,0.04);
-    display: flex;
-    flex-direction: column;
-  }
-  .card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 24px rgba(13,13,18,0.08);
-  }
-  .card.featured {
-    border: 2px solid var(--accent);
-    box-shadow: 0 6px 28px rgba(26,77,46,0.12);
-  }
-  .card.featured::before {
-    content: 'Suggéré';
-    position: absolute;
-    top: -11px;
-    right: 24px;
-    background: var(--accent);
-    color: var(--paper);
-    font-family: 'Inter', sans-serif;
-    font-size: 8pt;
-    font-weight: 700;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    padding: 3px 10px;
-    border-radius: 10px;
+    color: var(--accent);
+    margin-top: 4px;
   }
 
-  .card .card-kicker {
+  /* Hero */
+  .hero { margin-bottom: 32px; }
+  .hero-source {
     font-family: 'JetBrains Mono', monospace;
     font-size: 8pt;
     font-weight: 600;
-    letter-spacing: 0.25em;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--accent-bright);
-    margin-bottom: 10px;
+    color: var(--accent);
+    margin-bottom: 14px;
   }
-  .card h2 {
+  .hero-title {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
-    font-size: 20pt;
-    line-height: 1.15;
-    letter-spacing: -0.015em;
+    font-size: clamp(28pt, 6vw, 38pt);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
     color: var(--ink);
+    margin: 0 0 14px;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .hero-sub {
+    font-family: 'Source Serif Pro', serif;
+    font-size: 13pt;
+    line-height: 1.5;
+    color: var(--mute);
+    max-width: 560px;
+    margin: 0;
+  }
+
+  /* Cards */
+  .card {
+    background: var(--paper-warm);
+    border: 1px solid rgba(26,77,46,0.10);
+    border-radius: 14px;
+    padding: 26px 28px;
+    margin-bottom: 18px;
+    box-shadow: 0 1px 2px rgba(13,13,18,0.03);
+  }
+  .card-kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 18pt;
+    line-height: 1.2;
+    color: var(--ink);
+    margin: 0 0 8px;
+    letter-spacing: -0.01em;
+  }
+  .card-pill {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(26,77,46,0.08);
+    border-radius: 20px;
+    padding: 4px 12px;
     margin-bottom: 12px;
   }
-  .card .card-body {
+  .card-body {
     font-family: 'Source Serif Pro', serif;
-    font-size: 11pt;
-    line-height: 1.55;
+    font-size: 11.5pt;
+    line-height: 1.6;
+    color: var(--ink);
+    margin: 0 0 18px;
+  }
+  .card-body em {
     color: var(--mute);
-    margin-bottom: 22px;
-    flex-grow: 1;
+    font-style: italic;
   }
-
-  .cta-button {
-    display: inline-block;
-    background: var(--accent);
-    color: var(--paper);
-    text-decoration: none;
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    font-size: 10pt;
-    letter-spacing: 0.05em;
-    padding: 14px 24px;
-    border-radius: 8px;
-    transition: background 0.2s;
-    text-align: center;
-    cursor: pointer;
-    border: none;
-  }
-  .cta-button:hover {
-    background: var(--accent-bright);
-  }
-  .cta-button.dark {
-    background: var(--obsidian);
-  }
-  .cta-button.dark:hover { background: #1A1A22; }
 
   /* Form */
-  .brevo-form {
+  .form-row {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin-bottom: 12px;
   }
-  .brevo-form input {
+  .form-row input[type="text"],
+  .form-row input[type="email"],
+  .form-row input[type="tel"] {
     font-family: 'Inter', sans-serif;
-    font-size: 10pt;
+    font-size: 11pt;
     padding: 12px 14px;
-    border: 1px solid var(--rule);
+    border: 1px solid rgba(26,77,46,0.25);
     border-radius: 8px;
     background: var(--paper);
     color: var(--ink);
-    transition: border-color 0.2s;
+    width: 100%;
+    transition: border-color 0.15s ease;
   }
-  .brevo-form input:focus {
+  .form-row input:focus {
     outline: none;
     border-color: var(--accent);
   }
-  .brevo-form .consent {
-    font-family: 'Inter', sans-serif;
-    font-size: 9pt;
-    color: var(--mute);
+  .form-checkbox {
     display: flex;
+    gap: 10px;
     align-items: flex-start;
-    gap: 8px;
-    margin-top: 6px;
+    font-family: 'Source Serif Pro', serif;
+    font-size: 9.5pt;
+    color: var(--mute);
+    margin: 12px 0 14px;
     line-height: 1.4;
   }
-  .brevo-form .consent input[type="checkbox"] {
-    margin-top: 2px;
+  .form-checkbox input { margin-top: 3px; }
+
+  /* Buttons */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 14px 18px;
+    background: var(--accent);
+    color: var(--paper);
+    border: none;
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 10pt;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .btn-primary:hover {
+    background: var(--accent-bright);
+  }
+  .btn-primary::after {
+    content: '→';
   }
 
-  .form-message {
+  .btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 14px 18px;
+    background: var(--whatsapp);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 10.5pt;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .btn-whatsapp:hover { background: #1da851; }
+  .btn-whatsapp svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+  .mail-fallback {
+    margin: 14px 0 0;
+    text-align: center;
     font-family: 'Source Serif Pro', serif;
     font-size: 10pt;
-    line-height: 1.5;
-    padding: 14px;
-    border-radius: 8px;
-    margin-top: 12px;
-    display: none;
+    color: var(--mute);
+    font-style: italic;
   }
-  .form-message.success {
-    background: var(--accent-soft);
+  .mail-fallback a {
     color: var(--accent);
-    display: block;
+    font-style: normal;
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-thickness: 0.5px;
+    text-underline-offset: 2px;
   }
-  .form-message.error {
-    background: #fdf0ec;
-    color: #b33a2e;
-    display: block;
+  .mail-fallback a:hover {
+    color: var(--accent-bright);
   }
 
-  /* Footer */
-  footer {
-    text-align: center;
-    margin-top: 60px;
-    padding-top: 28px;
-    border-top: 1px solid var(--rule);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 8pt;
-    color: var(--mute);
-    letter-spacing: 0.1em;
+  /* Cal.com embed wrapper */
+  .cal-embed {
+    margin-top: 8px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--paper);
+    border: 1px solid rgba(26,77,46,0.10);
   }
-  footer a {
+
+  /* Status messages */
+  .form-status {
+    font-family: 'Inter', sans-serif;
+    font-size: 9.5pt;
+    margin-top: 12px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    display: none;
+  }
+  .form-status.success {
+    display: block;
+    background: rgba(26,77,46,0.08);
     color: var(--accent);
-    text-decoration: none;
+    border: 1px solid var(--accent);
   }
-  footer a:hover { text-decoration: underline; }
+  .form-status.error {
+    display: block;
+    background: rgba(179,58,46,0.08);
+    color: #b33a2e;
+    border: 1px solid #b33a2e;
+  }
+
+  /* Closing thanks */
+  .closing {
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    text-align: center;
+    font-family: 'Source Serif Pro', serif;
+    font-size: 10pt;
+    font-style: italic;
+    color: var(--mute);
+  }
+  .closing a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-thickness: 0.5px;
+    text-underline-offset: 2px;
+  }
+
+  @media (max-width: 520px) {
+    .card { padding: 22px 20px; }
+    .hero-title { font-size: 26pt; }
+  }
 </style>
-<script defer data-website-id="dfid_OTtkczO4CIqf5aue3sqwj" data-domain="gingerclick.com" src="https://datafa.st/js/script.js"></script>
 </head>
 <body>
 
-<main>
+<div class="container">
 
+  <!-- Header brand -->
+  <header class="brand">
+    <img src="/gingerclick-logo-new.png" alt="Logo GingerClick">
+    <div class="brand-text">
+      <div class="brand-name">GingerClick</div>
+      <div class="brand-services">Automatisation &middot; IA &middot; Croissance &middot; Formation</div>
+    </div>
+  </header>
+
+  <!-- Hero -->
   <section class="hero">
-    <div class="brand">GingerClick<span class="dot">.</span></div>
-    <div class="tagline">Cabinet IA &amp; Automatisation</div>
-
-    <h1>Merci d'être <em>passé</em>.</h1>
-    <p class="lede">L'IA change la donne pour les dirigeants. Parlons de votre cas, ou gardons le contact.</p>
-
-    <div class="utm-badge" id="utm-badge">Source · Antilla mai 2026</div>
+    <div class="hero-source">Source &middot; Antilla mai 2026</div>
+    <h1 class="hero-title">Merci de votre <em>lecture.</em></h1>
+    <p class="hero-sub">L'article ouvre quelques portes. Cette page en propose trois, à votre rythme. Aucune relance, aucune liste, juste les outils que vous avez sous la main si l'IA croise vos chantiers.</p>
   </section>
 
-  <section class="cards-grid">
+  <!-- Card 1 · Discutons de vos projets (anciennement Sparring stratégique) -->
+  <section class="card">
+    <div class="card-kicker">Discutons de vos projets</div>
+    <span class="card-pill">30 minutes</span>
+    <p class="card-body">Un appel offert pour cartographier les outils IA les mieux adaptés à votre activité. Une lecture concrète de vos processus, des recommandations chiffrées en sortie. <em>Aucune relance commerciale.</em></p>
 
-    <!-- CTA Appel -->
-    <div class="card" id="card-sparring">
-      <div class="card-kicker">Sparring stratégique · 30 minutes</div>
-      <h2>Un conseil sur vos projets IA en cours.</h2>
-      <p class="card-body">Un appel offert avec GingerClick. Un avis franc sur votre situation, des pistes concrètes, zéro relance commerciale.</p>
-      <button class="cta-button" onclick="openCal()">Réserver un appel →</button>
+    <!-- Cal.com embed -->
+    <div class="cal-embed">
+      <iframe
+        src="https://cal.com/andy-gtd/parlons-ia-antilla?embed=true&theme=light&hideEventTypeDetails=false"
+        width="100%"
+        height="640"
+        frameborder="0"
+        title="Réservation Cal.com">
+      </iframe>
     </div>
-
-    <!-- CTA Newsletter -->
-    <div class="card" id="card-newsletter">
-      <div class="card-kicker">Newsletter · 5 minutes par semaine</div>
-      <h2>Le décryptage IA des dirigeants.</h2>
-      <p class="card-body">Les sorties, les signaux, les leviers concrets. Un mail par semaine, cinq minutes de lecture, zéro hype.</p>
-
-      <form class="brevo-form" id="newsletter-form" onsubmit="return submitNewsletter(event)">
-        <input type="text" name="prenom" placeholder="Prénom" required>
-        <input type="text" name="nom" placeholder="Nom" required>
-        <input type="email" name="email" placeholder="Email" required>
-        <input type="tel" name="telephone" placeholder="Téléphone (optionnel)">
-
-        <label class="consent">
-          <input type="checkbox" name="consent" required>
-          <span>J'accepte de recevoir la newsletter GingerClick. Je peux me désabonner à tout moment.</span>
-        </label>
-
-        <input type="hidden" name="utm_source" id="f-utm-source">
-        <input type="hidden" name="utm_medium" id="f-utm-medium">
-        <input type="hidden" name="utm_campaign" id="f-utm-campaign">
-        <input type="hidden" name="utm_content" id="f-utm-content">
-
-        <button type="submit" class="cta-button dark">M'abonner →</button>
-        <div class="form-message" id="form-message"></div>
-      </form>
-    </div>
-
   </section>
 
-  <footer>
-    GingerClick · Cabinet IA &amp; Automatisation · <a href="mailto:andy@gingerclick.com">andy@gingerclick.com</a>
-  </footer>
+  <!-- Card 2 · Liste d'attente workshops -->
+  <section class="card">
+    <div class="card-kicker">Workshops &middot; Liste d'attente</div>
+    <h2 class="card-title">Faire de l'IA un atout de direction.</h2>
+    <p class="card-body">Des ateliers pour apporter une meilleure clarté sur l'usage effectif des technologies IA au profit de votre développement. Inscrivez-vous et soyez informé du prochain atelier.</p>
 
-</main>
+    <form id="form-workshops" data-source="workshops">
+      <div class="form-row">
+        <input type="text" name="full_name" placeholder="Nom complet" required autocomplete="name">
+      </div>
+      <div class="form-row">
+        <input type="email" name="email" placeholder="Adresse email" required autocomplete="email">
+      </div>
+      <div class="form-checkbox">
+        <input type="checkbox" name="consent" id="consent-workshops" required>
+        <label for="consent-workshops">J'accepte d'être informé(e) du prochain atelier GingerClick. Désinscription possible à tout moment.</label>
+      </div>
+      <button type="submit" class="btn-primary">Rejoindre la liste d'attente</button>
+      <div class="form-status" data-status></div>
+    </form>
+  </section>
 
-<!-- Cal.com inline embed -->
-<script type="text/javascript">
-(function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-Cal("init", "parlons-ia-antilla", { origin: "https://cal.com" });
-Cal.ns["parlons-ia-antilla"]("ui", { cssVarsPerTheme: { light: { "cal-brand": "#1A4D2E" }, dark: { "cal-brand": "#D4A94C" } }, hideEventTypeDetails: false, layout: "month_view" });
-</script>
+  <!-- Card 3 · Newsletter (anciennement Décryptage pour les dirigeants) -->
+  <section class="card">
+    <div class="card-kicker">Newsletter</div>
+    <h2 class="card-title">Le décryptage IA des dirigeants.</h2>
+    <p class="card-body">Les sorties, les signaux, les leviers concrets. Un mail par semaine, cinq minutes de lecture, zéro hype.</p>
+
+    <form id="form-newsletter" data-source="newsletter">
+      <div class="form-row">
+        <input type="text" name="full_name" placeholder="Nom complet" required autocomplete="name">
+      </div>
+      <div class="form-row">
+        <input type="email" name="email" placeholder="Adresse email" required autocomplete="email">
+      </div>
+      <div class="form-checkbox">
+        <input type="checkbox" name="consent" id="consent-news" required>
+        <label for="consent-news">J'accepte de recevoir la newsletter GingerClick. Désinscription possible à tout moment.</label>
+      </div>
+      <button type="submit" class="btn-primary">M'abonner</button>
+      <div class="form-status" data-status></div>
+    </form>
+  </section>
+
+  <!-- Card 4 · WhatsApp direct -->
+  <section class="card">
+    <div class="card-kicker">Message direct</div>
+    <h2 class="card-title">Ouvrons la conversation.</h2>
+    <p class="card-body">Une question, un retour sur l'article, une idée à creuser. Le plus rapide, c'est WhatsApp.</p>
+
+    <a class="btn-whatsapp"
+       href="https://wa.me/596696669169?text=Bonjour%2C%20j%27ai%20lu%20votre%20article%20sur%20Antilla"
+       target="_blank"
+       rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+      </svg>
+      Envoyer un message WhatsApp
+    </a>
+
+    <p class="mail-fallback">
+      Ou par email : <a href="mailto:andy@gingerclick.com?subject=J%27ai%20lu%20votre%20article%20sur%20Antilla">andy@gingerclick.com</a>
+    </p>
+  </section>
+
+  <!-- Closing -->
+  <div class="closing">
+    Andy Guitteaud &middot; <a href="https://gingerclick.com" target="_blank" rel="noopener">gingerclick.com</a> &middot; <a href="mailto:andy@gingerclick.com">andy@gingerclick.com</a>
+  </div>
+
+</div>
 
 <script>
-  // Capture UTM et adapte la hiérarchie visuelle
-  const params = new URLSearchParams(location.search);
-  const utm = {
-    source: params.get('utm_source') || '',
-    medium: params.get('utm_medium') || '',
-    campaign: params.get('utm_campaign') || '',
-    content: params.get('utm_content') || ''
-  };
-
-  // Remplit les hidden fields du form
-  document.getElementById('f-utm-source').value = utm.source;
-  document.getElementById('f-utm-medium').value = utm.medium;
-  document.getElementById('f-utm-campaign').value = utm.campaign;
-  document.getElementById('f-utm-content').value = utm.content;
-
-  // Badge UTM visible en hero
-  if (utm.source || utm.content) {
-    const badge = document.getElementById('utm-badge');
-    let label = 'Source · ';
-    if (utm.source) label += utm.source;
-    if (utm.campaign) label += ' · ' + utm.campaign;
-    if (utm.content) label += ' · ' + utm.content;
-    badge.textContent = label;
-    badge.classList.add('visible');
-  }
-
-  // Adapte la hiérarchie visuelle selon utm_content
-  if (utm.content === 'sparring') {
-    document.getElementById('card-sparring').classList.add('featured');
-  } else if (utm.content === 'newsletter') {
-    document.getElementById('card-newsletter').classList.add('featured');
-  }
-
-  // Ouvre Cal.com popup
-  function openCal() {
-    Cal.ns["parlons-ia-antilla"]("modal", { calLink: "andy-gtd/parlons-ia-antilla" });
-  }
-
-  // Submit newsletter form
-  async function submitNewsletter(e) {
-    e.preventDefault();
-    const form = e.target;
-    const msgEl = document.getElementById('form-message');
-    msgEl.className = 'form-message';
-    msgEl.style.display = 'none';
-
-    const data = {
-      prenom: form.prenom.value.trim(),
-      nom: form.nom.value.trim(),
-      email: form.email.value.trim(),
-      telephone: form.telephone.value.trim(),
-      utm_source: form.utm_source.value,
-      utm_medium: form.utm_medium.value,
-      utm_campaign: form.utm_campaign.value,
-      utm_content: form.utm_content.value
+  // Capture UTM
+  function getUtm() {
+    const p = new URLSearchParams(window.location.search);
+    return {
+      utm_source: p.get('utm_source') || '',
+      utm_medium: p.get('utm_medium') || '',
+      utm_campaign: p.get('utm_campaign') || '',
+      utm_content: p.get('utm_content') || '',
     };
-
-    try {
-      const res = await fetch('/api/antilla-submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      });
-      const json = await res.json();
-      if (res.ok && json.ok) {
-        msgEl.className = 'form-message success';
-        msgEl.textContent = 'Merci. Vous recevrez le prochain décryptage sous peu.';
-        form.reset();
-      } else {
-        msgEl.className = 'form-message error';
-        msgEl.textContent = json.error || 'Une erreur est survenue. Réessayez dans un instant.';
-      }
-    } catch (err) {
-      msgEl.className = 'form-message error';
-      msgEl.textContent = 'Connexion interrompue. Réessayez.';
-    }
-    return false;
   }
+
+  // Submit handler
+  document.querySelectorAll('form[data-source]').forEach((form) => {
+    form.addEventListener('submit', async (ev) => {
+      ev.preventDefault();
+      const status = form.querySelector('[data-status]');
+      const button = form.querySelector('button[type="submit"]');
+      const originalLabel = button.textContent;
+
+      status.className = 'form-status';
+      button.disabled = true;
+      button.textContent = 'Envoi en cours...';
+
+      const data = {
+        source: form.dataset.source,
+        full_name: form.querySelector('[name="full_name"]').value.trim(),
+        email: form.querySelector('[name="email"]').value.trim(),
+        consent: form.querySelector('[name="consent"]').checked,
+        ...getUtm(),
+      };
+
+      try {
+        const res = await fetch('/api/antilla-submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+
+        if (!res.ok) throw new Error('Erreur reseau');
+
+        status.classList.add('success');
+        status.textContent = 'Merci, votre demande est bien enregistree. A bientot.';
+        form.reset();
+      } catch (err) {
+        status.classList.add('error');
+        status.textContent = 'Une erreur est survenue. Reessayez ou ecrivez a andy@gingerclick.com';
+      } finally {
+        button.disabled = false;
+        button.textContent = originalLabel;
+      }
+    });
+  });
 </script>
 
 </body>
