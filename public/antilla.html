@@ -506,6 +506,22 @@
         status.classList.add('success');
         status.textContent = 'Merci, votre demande est bien enregistree. A bientot.';
         form.reset();
+
+        // Datafast custom event : conversion sur la landing Antilla
+        try {
+          const goalName = data.source === 'workshops'
+            ? 'antilla_workshops_signup'
+            : data.source === 'newsletter'
+              ? 'antilla_newsletter_signup'
+              : 'antilla_signup';
+          if (window.datafast) {
+            window.datafast(goalName, {
+              source: data.source,
+              utm_source: data.utm_source,
+              utm_campaign: data.utm_campaign,
+            });
+          }
+        } catch (e) { /* never block UI */ }
       } catch (err) {
         status.classList.add('error');
         status.textContent = 'Une erreur est survenue. Reessayez ou ecrivez a andy@gingerclick.com';
