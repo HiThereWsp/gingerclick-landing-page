@@ -328,6 +328,121 @@
     border: 1px solid #b33a2e;
   }
 
+  /* === Hierarchy : primary vs secondary cards === */
+
+  /* Primary cards : workshops + RDV (les 2 CTA principaux) */
+  .card-primary {
+    border: 1px solid rgba(26,77,46,0.18);
+    box-shadow: 0 4px 18px rgba(26,77,46,0.05);
+  }
+
+  /* Secondary card : Newsletter + WhatsApp (option compacte) */
+  .card-secondary {
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin-top: 24px;
+  }
+  .card-secondary .secondary-divider {
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5pt;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin: 32px 0 18px;
+    position: relative;
+  }
+  .card-secondary .secondary-divider::before,
+  .card-secondary .secondary-divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: calc(50% - 80px);
+    height: 1px;
+    background: var(--rule);
+  }
+  .card-secondary .secondary-divider::before { left: 0; }
+  .card-secondary .secondary-divider::after { right: 0; }
+
+  /* Newsletter <details> compact */
+  .secondary-item {
+    background: rgba(26,77,46,0.025);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 14px;
+  }
+  .secondary-item summary {
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    user-select: none;
+  }
+  .secondary-item summary::-webkit-details-marker { display: none; }
+  .secondary-item summary::after {
+    content: '+';
+    position: absolute;
+    right: 22px;
+    margin-top: -22px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14pt;
+    color: var(--accent);
+    font-weight: 300;
+  }
+  .secondary-item[open] summary::after { content: '−'; }
+  .secondary-kicker {
+    font-family: 'Inter', sans-serif;
+    font-size: 8pt;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .secondary-title {
+    font-family: 'Source Serif Pro', serif;
+    font-size: 11pt;
+    color: var(--ink);
+    line-height: 1.35;
+  }
+  .secondary-form { margin-top: 14px; }
+  .btn-secondary {
+    display: inline-block;
+    background: transparent;
+    color: var(--accent);
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 9px 18px;
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  .btn-secondary:hover { background: var(--accent); color: #fff; }
+
+  /* Inline contact links (WhatsApp + email) */
+  .secondary-contact {
+    text-align: center;
+    margin-top: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 9.5pt;
+    color: var(--mute);
+    padding: 8px 0;
+  }
+  .secondary-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 4px 8px;
+  }
+  .secondary-link:hover { text-decoration: underline; }
+  .secondary-sep { color: var(--mute); margin: 0 6px; opacity: 0.5; }
+
   /* Closing thanks */
   .closing {
     margin-top: 40px;
@@ -369,32 +484,14 @@
   <section class="hero">
     <div class="hero-source">Source &middot; Antilla mai 2026</div>
     <h1 class="hero-title">Merci de votre <em>lecture.</em></h1>
-    <p class="hero-sub">L'article ouvre quelques portes. Cette page en propose trois, à votre rythme. Aucune relance, aucune liste, juste les outils que vous avez sous la main si l'IA croise vos chantiers.</p>
+    <p class="hero-sub">Deux options à votre rythme : rejoindre la liste d'attente du prochain workshop IA, ou réserver un échange direct. Aucune relance, juste les outils que vous avez sous la main si l'IA croise vos chantiers.</p>
   </section>
 
-  <!-- Card 1 · Discutons de vos projets (anciennement Sparring stratégique) -->
-  <section class="card">
-    <div class="card-kicker">Discutons de vos projets</div>
-    <span class="card-pill">30 minutes</span>
-    <p class="card-body">Un appel offert pour cartographier les outils IA les mieux adaptés à votre activité. Une lecture concrète de vos processus, des recommandations chiffrées en sortie. <em>Aucune relance commerciale.</em></p>
-
-    <!-- Cal.com embed -->
-    <div class="cal-embed">
-      <iframe
-        src="https://cal.com/andy-gtd/parlons-ia-antilla?embed=true&theme=light&hideEventTypeDetails=false"
-        width="100%"
-        height="640"
-        frameborder="0"
-        title="Réservation Cal.com">
-      </iframe>
-    </div>
-  </section>
-
-  <!-- Card 2 · Liste d'attente workshops -->
-  <section class="card">
+  <!-- PRIMARY 1 · Workshops (CTA principal du QR Antilla) -->
+  <section class="card card-primary">
     <div class="card-kicker">Workshops &middot; Liste d'attente</div>
     <h2 class="card-title">Faire de l'IA un atout de direction.</h2>
-    <p class="card-body">Des ateliers pour apporter une meilleure clarté sur l'usage effectif des technologies IA au profit de votre développement. Inscrivez-vous et soyez informé du prochain atelier.</p>
+    <p class="card-body">Des ateliers gratuits pour apporter une meilleure clarté sur l'usage effectif des technologies IA au profit de votre développement. Inscrivez-vous et soyez informé du prochain atelier.</p>
 
     <form id="form-workshops" data-source="workshops">
       <div class="form-row">
@@ -412,52 +509,70 @@
     </form>
   </section>
 
-  <!-- Card 3 · Newsletter (anciennement Décryptage pour les dirigeants) -->
-  <section class="card">
-    <div class="card-kicker">Newsletter</div>
-    <h2 class="card-title">Le décryptage IA des dirigeants.</h2>
-    <p class="card-body">Les sorties, les signaux, les leviers concrets. Un mail par semaine, cinq minutes de lecture, zéro hype.</p>
+  <!-- PRIMARY 2 · Cal.com (RDV direct) -->
+  <section class="card card-primary">
+    <div class="card-kicker">Discutons de vos projets</div>
+    <span class="card-pill">30 minutes &middot; gratuit</span>
+    <h2 class="card-title">Un appel pour cartographier vos chantiers IA.</h2>
+    <p class="card-body">Une lecture concrète de vos processus, des recommandations chiffrées en sortie. <em>Aucune relance commerciale.</em></p>
 
-    <form id="form-newsletter" data-source="newsletter">
-      <div class="form-row">
-        <input type="text" name="full_name" placeholder="Nom complet" required autocomplete="name">
-      </div>
-      <div class="form-row">
-        <input type="email" name="email" placeholder="Adresse email" required autocomplete="email">
-      </div>
-      <div class="form-checkbox">
-        <input type="checkbox" name="consent" id="consent-news" required>
-        <label for="consent-news">J'accepte de recevoir la newsletter GingerClick. Désinscription possible à tout moment.</label>
-      </div>
-      <button type="submit" class="btn-primary">M'abonner</button>
-      <div class="form-status" data-status></div>
-    </form>
+    <!-- Cal.com embed -->
+    <div class="cal-embed">
+      <iframe
+        src="https://cal.com/andy-gtd/parlons-ia-antilla?embed=true&theme=light&hideEventTypeDetails=false"
+        width="100%"
+        height="640"
+        frameborder="0"
+        title="Réservation Cal.com">
+      </iframe>
+    </div>
   </section>
 
-  <!-- Card 4 · WhatsApp direct -->
-  <section class="card">
-    <div class="card-kicker">Message direct</div>
-    <h2 class="card-title">Ouvrons la conversation.</h2>
-    <p class="card-body">Une question, un retour sur l'article, une idée à creuser. Le plus rapide, c'est WhatsApp.</p>
+  <!-- SECONDARY · Newsletter compacte + WhatsApp/Email -->
+  <section class="card card-secondary">
+    <div class="secondary-divider">Autres canaux</div>
 
-    <a class="btn-whatsapp"
-       href="https://wa.me/596696669169?text=Bonjour%2C%20j%27ai%20lu%20votre%20article%20sur%20Antilla"
-       target="_blank"
-       rel="noopener">
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
-      </svg>
-      Envoyer un message WhatsApp
-    </a>
+    <!-- Newsletter compacte -->
+    <details class="secondary-item">
+      <summary>
+        <span class="secondary-kicker">Newsletter</span>
+        <span class="secondary-title">Le décryptage IA des dirigeants &middot; un mail par semaine</span>
+      </summary>
+      <form id="form-newsletter" data-source="newsletter" class="secondary-form">
+        <div class="form-row">
+          <input type="text" name="full_name" placeholder="Nom complet" required autocomplete="name">
+        </div>
+        <div class="form-row">
+          <input type="email" name="email" placeholder="Adresse email" required autocomplete="email">
+        </div>
+        <div class="form-checkbox">
+          <input type="checkbox" name="consent" id="consent-news" required>
+          <label for="consent-news">J'accepte de recevoir la newsletter GingerClick. Désinscription possible à tout moment.</label>
+        </div>
+        <button type="submit" class="btn-secondary">M'abonner</button>
+        <div class="form-status" data-status></div>
+      </form>
+    </details>
 
-    <p class="mail-fallback">
-      Ou par email : <a href="mailto:andy@gingerclick.com?subject=J%27ai%20lu%20votre%20article%20sur%20Antilla">andy@gingerclick.com</a>
-    </p>
+    <!-- WhatsApp + Email links -->
+    <div class="secondary-contact">
+      <a class="secondary-link"
+         href="https://wa.me/596696669169?text=Bonjour%2C%20j%27ai%20lu%20votre%20article%20sur%20Antilla"
+         target="_blank"
+         rel="noopener">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="vertical-align:-2px;margin-right:4px;">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+        </svg>
+        Message direct WhatsApp
+      </a>
+      <span class="secondary-sep">·</span>
+      <a class="secondary-link" href="mailto:andy@gingerclick.com?subject=J%27ai%20lu%20votre%20article%20sur%20Antilla">andy@gingerclick.com</a>
+    </div>
   </section>
 
   <!-- Closing -->
   <div class="closing">
-    Andy Guitteaud &middot; <a href="https://gingerclick.com" target="_blank" rel="noopener">gingerclick.com</a> &middot; <a href="mailto:andy@gingerclick.com">andy@gingerclick.com</a>
+    Andy Guitteaud &middot; <a href="https://gingerclick.com" target="_blank" rel="noopener">gingerclick.com</a>
   </div>
 
 </div>
