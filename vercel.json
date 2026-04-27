@@ -1,5 +1,9 @@
 {
   "framework": "vite",
   "buildCommand": "vite build",
-  "outputDirectory": "dist"
+  "outputDirectory": "dist",
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/antilla", "destination": "/antilla.html" }
+  ]
 }
