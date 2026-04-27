@@ -142,7 +142,93 @@ export default async function handler(req, res) {
     console.error('Notification email failed:', err);
   }
 
+  // 3. Welcome email envoyé au lead (selon la source)
+  try {
+    const leadFirstName = first || 'bonjour';
+    const welcomeContent = buildWelcomeEmail(source, leadFirstName);
+    if (welcomeContent) {
+      await fetch('https://api.brevo.com/v3/smtp/email', {
+        method: 'POST',
+        headers: {
+          'accept': 'application/json',
+          'api-key': BREVO_API_KEY,
+          'content-type': 'application/json',
+        },
+        body: JSON.stringify({
+          sender: { email: 'andy@gingerclick.com', name: 'Andy Guitteaud' },
+          replyTo: { email: 'andy@gingerclick.com', name: 'Andy Guitteaud' },
+          to: [{ email, name: full_name || email }],
+          subject: welcomeContent.subject,
+          htmlContent: welcomeContent.html,
+        }),
+      });
+    }
+  } catch (err) {
+    // Ne bloque pas non plus la réponse au client si le welcome échoue
+    console.error('Welcome email failed:', err);
+  }
+
   return res.status(200).json({ ok: true });
+}
+
+// Welcome email selon la source de l'inscription
+function buildWelcomeEmail(source, firstName) {
+  const safeName = escapeHtml(firstName);
+
+  if (source === 'workshops') {
+    return {
+      subject: 'Bienvenue. On vous tient au courant du prochain workshop IA',
+      html: `
+<div style="font-family:'Source Serif Pro',Georgia,serif;color:#1a1a1a;max-width:560px;margin:0 auto;padding:24px;line-height:1.55;">
+  <p style="font-size:16px;">Bonjour ${safeName},</p>
+
+  <p style="font-size:16px;">Merci de votre inscription à la liste d'attente.</p>
+
+  <p style="font-size:16px;">Nous organisons régulièrement des ateliers IA gratuits, en présentiel à Fort-de-France et à distance, pour aider les dirigeants à <strong>clarifier les usages de l'IA</strong> et à <strong>s'inscrire dans un processus de transition digitale concret</strong>. Cas d'usage réels, pas de buzz, des décisions à prendre lundi matin.</p>
+
+  <p style="font-size:16px;">Vous recevrez un email dès qu'on annonce le prochain atelier.</p>
+
+  <p style="font-size:16px;">En attendant, si vous voulez avoir un aperçu de ce qu'on construit chez GingerClick : <a href="https://gingerclick.com" style="color:#1A4D2E;">gingerclick.com</a></p>
+
+  <p style="font-size:16px;">À très vite,<br><em style="color:#1A4D2E;font-weight:600;">Andy Guitteaud</em></p>
+
+  <hr style="border:none;border-top:1px solid #e0dccc;margin:24px 0;">
+
+  <p style="font-size:11px;color:#6b6355;letter-spacing:0.04em;">
+    GingerClick · Automatisation · IA · Marketing · Formation<br>
+    <a href="https://gingerclick.com" style="color:#C9A84C;text-decoration:none;">gingerclick.com</a>
+  </p>
+</div>`,
+    };
+  }
+
+  if (source === 'newsletter') {
+    return {
+      subject: 'Bienvenue dans le décryptage IA des dirigeants',
+      html: `
+<div style="font-family:'Source Serif Pro',Georgia,serif;color:#1a1a1a;max-width:560px;margin:0 auto;padding:24px;line-height:1.55;">
+  <p style="font-size:16px;">Bonjour ${safeName},</p>
+
+  <p style="font-size:16px;">Merci pour votre inscription au décryptage IA des dirigeants.</p>
+
+  <p style="font-size:16px;">Un mail par semaine, cinq minutes de lecture : les sorties qui comptent, les signaux faibles, les leviers concrets. <strong>Zéro hype, des décisions à prendre.</strong></p>
+
+  <p style="font-size:16px;">Le prochain numéro arrive sous peu. D'ici là, vous pouvez répondre directement à ce mail si une question sur l'IA croise vos chantiers — j'y réponds personnellement.</p>
+
+  <p style="font-size:16px;">À très vite,<br><em style="color:#1A4D2E;font-weight:600;">Andy Guitteaud</em></p>
+
+  <hr style="border:none;border-top:1px solid #e0dccc;margin:24px 0;">
+
+  <p style="font-size:11px;color:#6b6355;letter-spacing:0.04em;">
+    GingerClick · Automatisation · IA · Marketing · Formation<br>
+    <a href="https://gingerclick.com" style="color:#C9A84C;text-decoration:none;">gingerclick.com</a>
+  </p>
+</div>`,
+    };
+  }
+
+  // Pas de welcome pour autres sources (ex: test, appel...)
+  return null;
 }
 
 function escapeHtml(str) {
