@@ -127,6 +127,10 @@
     font-style: italic;
     color: var(--accent);
   }
+  .hero-title .hl-accent {
+    color: var(--accent);
+    font-style: normal;
+  }
   .hero-sub {
     font-family: 'Source Serif Pro', serif;
     font-size: 13pt;
@@ -135,6 +139,88 @@
     max-width: 560px;
     margin: 0;
   }
+
+  /* About box (descriptif workshops) */
+  .about-box {
+    background: rgba(26,77,46,0.04);
+    border: 1px solid rgba(26,77,46,0.18);
+    border-radius: 14px;
+    padding: 18px 22px;
+    margin-bottom: 22px;
+  }
+  .about-box p {
+    font-family: 'Source Serif Pro', serif;
+    font-size: 13pt;
+    line-height: 1.5;
+    color: var(--ink);
+    margin: 0;
+  }
+  .about-box strong { color: var(--accent); font-weight: 700; }
+
+  /* Benefits section (Vous obtiendrez) */
+  .benefits-section {
+    margin-bottom: 22px;
+    padding: 0 4px;
+  }
+  .benefits-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 16pt;
+    color: var(--ink);
+    margin: 0 0 10px;
+    letter-spacing: -0.01em;
+  }
+  .benefits-lead {
+    font-family: 'Source Serif Pro', serif;
+    font-size: 13pt;
+    line-height: 1.55;
+    color: var(--ink);
+    margin: 0 0 14px;
+    padding: 12px 14px;
+    background: rgba(201,168,76,0.08);
+    border-left: 3px solid var(--gold, #C9A84C);
+    border-radius: 6px;
+  }
+  .benefits-lead strong { color: var(--accent); font-weight: 700; }
+
+  /* CTA card (encadré formulaire) */
+  .cta-card .kicker-pill {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8.5pt;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .cta-card .cta-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 16pt;
+    line-height: 1.3;
+    color: var(--ink);
+    margin: 14px 0 16px;
+    letter-spacing: -0.01em;
+  }
+
+  /* Footer brand (déplacé depuis le haut) */
+  .brand-footer {
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--rule);
+    text-align: center;
+  }
+  .brand-footer-inner {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+  .brand-footer img { width: 42px; height: 42px; object-fit: contain; }
+  .brand-footer .brand-text { text-align: left; }
 
   /* Cards */
   .card {
@@ -494,33 +580,31 @@
 
 <div class="container">
 
-  <!-- Header brand -->
-  <header class="brand">
-    <img src="/gingerclick-logo-new.png" alt="Logo GingerClick">
-    <div class="brand-text">
-      <div class="brand-name">GingerClick</div>
-      <div class="brand-services">Automatisation &middot; IA &middot; Croissance &middot; Formation</div>
-    </div>
-  </header>
-
-  <!-- Hero -->
+  <!-- HERO · Titre punchy direct (selon wireframe Andy) -->
   <section class="hero">
-    <h1 class="hero-title">94 % des tâches de bureau peuvent déjà être assistées par l'IA. <em>Quelle est votre marge ?</em></h1>
+    <h1 class="hero-title">Implémentez l'IA dans votre entreprise et <span class="hl-accent">boostez la productivité de vos équipes.</span></h1>
   </section>
 
-  <!-- PRIMARY 1 · Workshops (CTA principal du QR Antilla) -->
-  <section class="card card-primary">
-    <div class="card-kicker">Workshops &middot; Liste d'attente</div>
-    <h2 class="card-title">Faire de l'IA un atout au sein de votre entreprise.</h2>
-    <p class="card-body">Une session pour repartir avec une vision claire des outils IA qui comptent vraiment pour votre activité.</p>
-    <p class="card-body" style="margin-bottom: 8px;">Vous obtiendrez :</p>
+  <!-- Encadré descriptif workshops -->
+  <section class="about-box">
+    <p>Nous organisons des <strong>Workshops IA gratuits</strong> en Martinique, pour accompagner les <strong>dirigeants</strong> dans l'implémentation de l'IA au sein de leurs équipes, processus et systèmes.</p>
+  </section>
+
+  <!-- Liste des bénéfices -->
+  <section class="benefits-section">
+    <h2 class="benefits-title">Au programme</h2>
+    <p class="benefits-lead">Vous obtiendrez une <strong>vision plus claire</strong> sur les outils IA déjà sur le marché et comment ils peuvent être un vrai <strong>levier pour votre croissance</strong>.</p>
     <ul class="card-benefits">
-      <li><strong>Clarté</strong> sur les outils IA déjà sur le marché : qui fait quoi, à quel coût, pour quel résultat concret</li>
       <li><strong>Des cas d'usage prioritaires</strong> identifiés sur vos propres processus</li>
       <li>Un <strong>plan d'action court terme</strong> pour déployer un premier workflow automatisé</li>
       <li>Un <strong>cadre clair</strong> : ce que l'IA fait, ce qui reste à vous</li>
     </ul>
-    <p class="card-body">Inscrivez-vous pour être informé du prochain atelier.</p>
+  </section>
+
+  <!-- ENCADRÉ CTA · Formulaire workshop -->
+  <section class="card card-primary cta-card">
+    <div class="card-kicker"><span class="kicker-pill">Liste d'attente · Workshop IA</span></div>
+    <h3 class="cta-title">Inscrivez-vous pour être parmi les premiers informés du prochain atelier.</h3>
 
     <form id="form-workshops" data-source="workshops">
       <div class="form-row">
@@ -600,10 +684,19 @@
     </div>
   </section>
 
-  <!-- Closing -->
-  <div class="closing">
-    Andy Guitteaud &middot; <a href="https://gingerclick.com" target="_blank" rel="noopener">gingerclick.com</a>
-  </div>
+  <!-- FOOTER · Logo + tagline + closing (déplacé depuis le haut) -->
+  <footer class="brand-footer">
+    <div class="brand-footer-inner">
+      <img src="/gingerclick-logo-new.png" alt="Logo GingerClick">
+      <div class="brand-text">
+        <div class="brand-name">GingerClick</div>
+        <div class="brand-services">Automatisation &middot; IA &middot; Croissance &middot; Formation</div>
+      </div>
+    </div>
+    <div class="closing">
+      Andy Guitteaud &middot; <a href="https://gingerclick.com" target="_blank" rel="noopener">gingerclick.com</a>
+    </div>
+  </footer>
 
 </div>
 
