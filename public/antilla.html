@@ -22,6 +22,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 
 <!-- Datafast analytics -->
+<!-- intl-tel-input : standard international phone input with country selector + E.164 validation -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/css/intlTelInput.min.css">
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/js/intlTelInput.min.js"></script>
+
 <!-- DataFast queue : guarantees events are captured even before the main script loads -->
 <script id="datafast-queue">
   window.datafast = window.datafast || function() {
@@ -328,6 +332,39 @@
     outline: none;
     border-color: var(--accent);
   }
+  .form-hint {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 9.5pt;
+    color: var(--mute);
+    margin-top: 4px;
+    line-height: 1.4;
+  }
+  /* intl-tel-input integration : match our form aesthetic */
+  .form-row-tel .iti { width: 100%; }
+  .form-row-tel .iti__tel-input {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 11pt !important;
+    padding: 12px 14px 12px 92px !important;
+    border: 1px solid rgba(26,77,46,0.25) !important;
+    border-radius: 8px !important;
+    background: var(--paper) !important;
+    color: var(--ink) !important;
+    width: 100% !important;
+  }
+  .form-row-tel .iti__tel-input:focus {
+    outline: none !important;
+    border-color: var(--accent) !important;
+  }
+  .form-row-tel .iti__country-list {
+    font-family: 'Inter', sans-serif;
+    font-size: 10pt;
+    border-radius: 8px;
+    border: 1px solid rgba(26,77,46,0.18);
+    box-shadow: 0 6px 22px rgba(13,13,18,0.10);
+  }
+  .form-row-tel .iti__selected-country { border-radius: 8px 0 0 8px; }
+  .form-row-tel.is-invalid .iti__tel-input { border-color: #b33a2e !important; }
   .form-checkbox {
     display: flex;
     gap: 10px;
@@ -620,6 +657,10 @@
       <div class="form-row">
         <input type="email" name="email" placeholder="Adresse email" required autocomplete="email">
       </div>
+      <div class="form-row form-row-tel">
+        <input type="tel" name="phone" id="phone-input" autocomplete="tel">
+        <small class="form-hint">Téléphone (optionnel). Sélectionnez votre indicatif et numéro pour être tenu(e) informé(e) par SMS de la tenue du prochain atelier.</small>
+      </div>
       <div class="form-checkbox">
         <input type="checkbox" name="consent" id="consent-workshops" required>
         <label for="consent-workshops">J'accepte d'être informé(e) du prochain atelier GingerClick. Désinscription possible à tout moment.</label>
@@ -719,6 +760,21 @@
     };
   }
 
+  // Init intl-tel-input on the workshops phone field
+  // Doc: https://github.com/jackocnr/intl-tel-input
+  let phoneInputInstance = null;
+  const phoneEl = document.querySelector('#phone-input');
+  if (phoneEl && window.intlTelInput) {
+    phoneInputInstance = window.intlTelInput(phoneEl, {
+      initialCountry: 'mq', // Martinique par défaut
+      preferredCountries: ['mq', 'fr', 'gp', 'gf', 'us', 'ca'],
+      separateDialCode: true,
+      formatOnDisplay: true,
+      // Loaded async — utils.js handles validation + E.164 formatting
+      utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/js/utils.js',
+    });
+  }
+
   // Submit handler
   document.querySelectorAll('form[data-source]').forEach((form) => {
     form.addEventListener('submit', async (ev) => {
@@ -726,6 +782,22 @@
       const status = form.querySelector('[data-status]');
       const button = form.querySelector('button[type="submit"]');
       const originalLabel = button.textContent;
+
+      // Phone validation : optional field — only validate if user typed something
+      const phoneField = form.querySelector('#phone-input');
+      if (phoneField && phoneInputInstance) {
+        const wrapper = phoneField.closest('.form-row-tel');
+        const rawValue = (phoneField.value || '').trim();
+        // Only validate if the user actually entered a number (not just left it empty)
+        if (rawValue.length > 0 && !phoneInputInstance.isValidNumber()) {
+          if (wrapper) wrapper.classList.add('is-invalid');
+          status.className = 'form-status error';
+          status.textContent = 'Numéro de téléphone invalide. Vérifiez l\'indicatif et le format.';
+          phoneField.focus();
+          return;
+        }
+        if (wrapper) wrapper.classList.remove('is-invalid');
+      }
 
       status.className = 'form-status';
       button.disabled = true;
@@ -735,6 +807,9 @@
         source: form.dataset.source,
         full_name: form.querySelector('[name="full_name"]').value.trim(),
         email: form.querySelector('[name="email"]').value.trim(),
+        phone: phoneInputInstance && form.querySelector('#phone-input') && (form.querySelector('#phone-input').value || '').trim().length > 0
+          ? phoneInputInstance.getNumber() // E.164 format, e.g. +596696123456 — only sent if user typed something
+          : '',
         consent: form.querySelector('[name="consent"]').checked,
         ...getUtm(),
       };

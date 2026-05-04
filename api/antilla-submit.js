@@ -41,6 +41,7 @@ export default async function handler(req, res) {
     source = 'unknown',
     full_name = '',
     email = '',
+    phone = '',
     consent = false,
     utm_source = '',
     utm_medium = '',
@@ -56,12 +57,38 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Consentement requis' });
   }
 
+  // Phone normalization → E.164 format for Brevo SMS field
+  // Accepts "+596 696 12 34 56", "0696123456", etc. → +596696123456
+  let smsValue = '';
+  if (phone && typeof phone === 'string') {
+    let cleaned = phone.replace(/[^\d+]/g, ''); // strip everything except digits and +
+    if (cleaned.length >= 7) {
+      // If starts with 0 (local FR), assume +596 (Martinique)
+      if (cleaned.startsWith('00')) cleaned = '+' + cleaned.slice(2);
+      else if (cleaned.startsWith('0')) cleaned = '+596' + cleaned.slice(1);
+      else if (!cleaned.startsWith('+')) cleaned = '+' + cleaned;
+      // Final E.164-ish check
+      if (/^\+\d{8,15}$/.test(cleaned)) smsValue = cleaned;
+    }
+  }
+
   // Split nom complet en first/last (Brevo accepte les deux)
   const [first, ...rest] = full_name.trim().split(/\s+/);
   const last = rest.join(' ') || '';
 
   // 1. Créer / mettre à jour le contact dans Brevo
   try {
+    const attributes = {
+      PRENOM: first,
+      NOM: last,
+      SOURCE: source,
+      UTM_SOURCE: utm_source,
+      UTM_MEDIUM: utm_medium,
+      UTM_CAMPAIGN: utm_campaign,
+      UTM_CONTENT: utm_content,
+    };
+    if (smsValue) attributes.SMS = smsValue;
+
     const brevoRes = await fetch('https://api.brevo.com/v3/contacts', {
       method: 'POST',
       headers: {
@@ -71,15 +98,7 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         email,
-        attributes: {
-          PRENOM: first,
-          NOM: last,
-          SOURCE: source,
-          UTM_SOURCE: utm_source,
-          UTM_MEDIUM: utm_medium,
-          UTM_CAMPAIGN: utm_campaign,
-          UTM_CONTENT: utm_content,
-        },
+        attributes,
         listIds: [BREVO_LIST_ID],
         updateEnabled: true,
       }),
@@ -113,6 +132,7 @@ export default async function handler(req, res) {
       <strong>Source :</strong> ${sourceLabel}<br>
       <strong>Nom :</strong> ${escapeHtml(full_name) || '(non renseigné)'}<br>
       <strong>Email :</strong> <a href="mailto:${email}">${email}</a><br>
+      <strong>Téléphone :</strong> ${smsValue ? `<a href="https://wa.me/${smsValue.replace(/\\+/, '')}">${smsValue}</a> (WhatsApp)` : '(non renseigné)'}<br>
       <strong>UTM source :</strong> ${escapeHtml(utm_source) || '—'}<br>
       <strong>UTM content :</strong> ${escapeHtml(utm_content) || '—'}<br>
       <strong>Date :</strong> ${new Date().toISOString()}
