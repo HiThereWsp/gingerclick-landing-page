@@ -176,6 +176,29 @@
     padding: 4px 12px;
     margin-bottom: 12px;
   }
+  /* Liste des bénéfices workshop */
+  .card-benefits {
+    margin: 0 0 14px 0;
+    padding-left: 20px;
+    list-style: none;
+  }
+  .card-benefits li {
+    font-family: 'Source Serif Pro', serif;
+    font-size: 11.5pt;
+    line-height: 1.55;
+    color: var(--ink);
+    padding: 4px 0 4px 18px;
+    position: relative;
+  }
+  .card-benefits li::before {
+    content: '→';
+    position: absolute;
+    left: -4px;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .card-benefits li strong { color: var(--accent); }
+
   .card-body {
     font-family: 'Source Serif Pro', serif;
     font-size: 11.5pt;
@@ -484,14 +507,21 @@
   <section class="hero">
     <div class="hero-source">Source &middot; Antilla mai 2026</div>
     <h1 class="hero-title">Merci de votre <em>lecture.</em></h1>
-    <p class="hero-sub">Deux options à votre rythme : rejoindre la liste d'attente du prochain workshop IA, ou réserver un échange direct. Aucune relance, juste les outils que vous avez sous la main si l'IA croise vos chantiers.</p>
   </section>
 
   <!-- PRIMARY 1 · Workshops (CTA principal du QR Antilla) -->
   <section class="card card-primary">
     <div class="card-kicker">Workshops &middot; Liste d'attente</div>
-    <h2 class="card-title">Faire de l'IA un atout de direction.</h2>
-    <p class="card-body">Des ateliers gratuits pour apporter une meilleure clarté sur l'usage effectif des technologies IA au profit de votre développement. Inscrivez-vous et soyez informé du prochain atelier.</p>
+    <h2 class="card-title">Faire de l'IA un atout au sein de votre entreprise.</h2>
+    <p class="card-body">Une session pour repartir avec une vision claire des outils IA qui comptent vraiment pour votre activité.</p>
+    <p class="card-body" style="margin-bottom: 8px;">Vous obtiendrez :</p>
+    <ul class="card-benefits">
+      <li><strong>Clarté</strong> sur les outils IA déjà sur le marché : qui fait quoi, à quel coût, pour quel résultat concret</li>
+      <li><strong>2 à 3 cas d'usage prioritaires</strong> identifiés sur vos propres processus</li>
+      <li>Un <strong>plan d'action court terme</strong> pour déployer un premier workflow automatisé</li>
+      <li>Un <strong>cadre de décision</strong> pour distinguer ce que l'IA peut prendre en charge de ce qui doit rester humain</li>
+    </ul>
+    <p class="card-body">Inscrivez-vous pour être informé du prochain atelier.</p>
 
     <form id="form-workshops" data-source="workshops">
       <div class="form-row">
