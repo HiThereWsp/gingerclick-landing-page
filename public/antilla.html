@@ -821,10 +821,10 @@
           body: JSON.stringify(data),
         });
 
-        if (!res.ok) throw new Error('Erreur reseau');
+        if (!res.ok) throw new Error('Erreur réseau');
 
         status.classList.add('success');
-        status.textContent = 'Merci, votre demande est bien enregistree. A bientot.';
+        status.textContent = 'Merci, votre demande est bien enregistrée. À bientôt.';
         form.reset();
 
         // Datafast custom event : conversion sur la landing Antilla
@@ -844,7 +844,7 @@
         } catch (e) { /* never block UI */ }
       } catch (err) {
         status.classList.add('error');
-        status.textContent = 'Une erreur est survenue. Reessayez ou ecrivez a andy@gingerclick.com';
+        status.textContent = 'Une erreur est survenue. Réessayez ou écrivez à andy@gingerclick.com';
       } finally {
         button.disabled = false;
         button.textContent = originalLabel;
