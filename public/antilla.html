@@ -117,11 +117,11 @@
   .hero-title {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
-    font-size: clamp(28pt, 6vw, 38pt);
-    line-height: 1.05;
-    letter-spacing: -0.02em;
+    font-size: clamp(22pt, 4.6vw, 32pt);
+    line-height: 1.12;
+    letter-spacing: -0.015em;
     color: var(--ink);
-    margin: 0 0 14px;
+    margin: 0 0 18px;
   }
   .hero-title em {
     font-style: italic;
@@ -486,7 +486,7 @@
 
   @media (max-width: 520px) {
     .card { padding: 22px 20px; }
-    .hero-title { font-size: 26pt; }
+    .hero-title { font-size: 21pt; line-height: 1.15; }
   }
 </style>
 </head>
@@ -505,8 +505,7 @@
 
   <!-- Hero -->
   <section class="hero">
-    <div class="hero-source">Source &middot; Antilla mai 2026</div>
-    <h1 class="hero-title">Merci de votre <em>lecture.</em></h1>
+    <h1 class="hero-title">94 % des tâches de bureau peuvent déjà être assistées par l'IA. <em>Quelle est votre marge ?</em></h1>
   </section>
 
   <!-- PRIMARY 1 · Workshops (CTA principal du QR Antilla) -->
@@ -517,9 +516,9 @@
     <p class="card-body" style="margin-bottom: 8px;">Vous obtiendrez :</p>
     <ul class="card-benefits">
       <li><strong>Clarté</strong> sur les outils IA déjà sur le marché : qui fait quoi, à quel coût, pour quel résultat concret</li>
-      <li><strong>2 à 3 cas d'usage prioritaires</strong> identifiés sur vos propres processus</li>
+      <li><strong>Des cas d'usage prioritaires</strong> identifiés sur vos propres processus</li>
       <li>Un <strong>plan d'action court terme</strong> pour déployer un premier workflow automatisé</li>
-      <li>Un <strong>cadre de décision</strong> pour distinguer ce que l'IA peut prendre en charge de ce qui doit rester humain</li>
+      <li>Un <strong>cadre clair</strong> : ce que l'IA fait, ce qui reste à vous</li>
     </ul>
     <p class="card-body">Inscrivez-vous pour être informé du prochain atelier.</p>
 
@@ -587,6 +586,7 @@
     <!-- WhatsApp + Email links -->
     <div class="secondary-contact">
       <a class="secondary-link"
+         data-track="antilla_whatsapp_click"
          href="https://wa.me/596696669169?text=Bonjour%2C%20j%27ai%20lu%20votre%20article%20sur%20Antilla"
          target="_blank"
          rel="noopener">
@@ -596,7 +596,7 @@
         Message direct WhatsApp
       </a>
       <span class="secondary-sep">·</span>
-      <a class="secondary-link" href="mailto:andy@gingerclick.com?subject=J%27ai%20lu%20votre%20article%20sur%20Antilla">andy@gingerclick.com</a>
+      <a class="secondary-link" data-track="antilla_email_click" href="mailto:andy@gingerclick.com?subject=J%27ai%20lu%20votre%20article%20sur%20Antilla">andy@gingerclick.com</a>
     </div>
   </section>
 
@@ -675,6 +675,44 @@
         button.textContent = originalLabel;
       }
     });
+  });
+
+  // === Datafast extra event tracking ===
+  // Helper to push a datafast event safely (never blocks UI)
+  function trackEvent(name, props) {
+    try {
+      if (window.datafast) window.datafast(name, props || {});
+    } catch (e) { /* never block */ }
+  }
+
+  // 1. WhatsApp + Email + any future link with data-track
+  document.querySelectorAll('a[data-track]').forEach((link) => {
+    link.addEventListener('click', () => {
+      const u = getUtm();
+      trackEvent(link.dataset.track, {
+        utm_source: u.utm_source,
+        utm_campaign: u.utm_campaign,
+      });
+    });
+  });
+
+  // 2. Cal.com booking confirmation (postMessage)
+  // Cal.com publishes events to the parent window via postMessage.
+  // Reference: https://cal.com/docs/embed/embed-events
+  window.addEventListener('message', (event) => {
+    if (!event.data) return;
+    // Cal.com event structure: { type: 'CAL', namespace, fullType, action, payload }
+    const type = event.data.type;
+    const action = event.data.action || (event.data.data && event.data.data.action);
+    if (type === 'CAL' || type === 'cal:calevent' || (typeof type === 'string' && type.startsWith('cal:'))) {
+      if (action === 'bookingSuccessful' || type === 'cal:bookingSuccessful' || type === 'cal:calevent.bookingSuccessful') {
+        const u = getUtm();
+        trackEvent('antilla_calcom_booked', {
+          utm_source: u.utm_source,
+          utm_campaign: u.utm_campaign,
+        });
+      }
+    }
   });
 </script>
 
