@@ -22,6 +22,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 
 <!-- Datafast analytics -->
+<!-- DataFast queue : guarantees events are captured even before the main script loads -->
+<script id="datafast-queue">
+  window.datafast = window.datafast || function() {
+    window.datafast.q = window.datafast.q || [];
+    window.datafast.q.push(arguments);
+  };
+</script>
 <script defer data-website-id="dfid_OTtkczO4CIqf5aue3sqwj" src="https://datafa.st/js/script.js"></script>
 
 <style>
