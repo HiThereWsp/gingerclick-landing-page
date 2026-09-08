@@ -1,6 +1,6 @@
 {
   "framework": "vite",
-  "buildCommand": "vite build",
+  "buildCommand": "node build-static.mjs",
   "outputDirectory": "dist",
   "cleanUrls": true,
   "rewrites": [
